@@ -304,11 +304,44 @@ textarea{resize:none;height:76px}
 .sec-blue .sec-body{color:rgba(255,255,255,.8)}
 
 /* ─── ABOUT ────────────────────────────────── */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
-.about-copy p{color:#374151;line-height:1.8;margin-bottom:1rem;font-size:1rem}
-.about-copy p.lead{font-size:1.08rem;font-weight:600;color:#111;margin-bottom:1.1rem}
-.about-img{border-radius:14px;overflow:hidden;aspect-ratio:4/3}
-.about-img img{width:100%;height:100%;object-fit:cover}
+/* ── ABOUT ──────────────────────────────── */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.about-img-side{position:relative;overflow:hidden;min-height:460px}
+.about-img-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.about-img-side:hover img{transform:scale(1.03)}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(1,83,219,.18),rgba(5,8,13,.45))}
+.about-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:#fff;border-radius:12px;padding:1rem 1.2rem;
+  display:flex;align-items:center;gap:.8rem;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+  max-width:220px;
+}
+.about-badge-icon{width:40px;height:40px;background:rgba(1,83,219,.1);border-radius:10px;display:grid;place-items:center;flex:none;color:var(--blue)}
+.about-badge-icon svg{width:20px;height:20px}
+.about-badge strong{display:block;font-size:.9rem;font-weight:800;color:#111;line-height:1.2}
+.about-badge span{font-size:.75rem;color:var(--muted)}
+.about-content{
+  padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,4vw,4rem);
+  display:flex;flex-direction:column;justify-content:center;
+  background:#fff;
+}
+.about-content .tag{margin-bottom:.7rem}
+.about-content h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:1.4rem}
+.about-content h2 em{font-style:normal;color:var(--blue)}
+.about-content p{color:#4B5563;line-height:1.82;margin-bottom:1rem;font-size:.98rem}
+.about-content p:first-of-type{font-size:1.06rem;font-weight:500;color:#111}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1.6rem}
+.about-pillar{display:flex;align-items:center;gap:.65rem;padding:.7rem .9rem;background:var(--mist);border-radius:9px;border-left:3px solid var(--blue)}
+.about-pillar svg{width:16px;height:16px;color:var(--blue);flex:none}
+.about-pillar span{font-size:.84rem;font-weight:600;color:#111}
+@media(max-width:900px){
+  .about-wrap{grid-template-columns:1fr}
+  .about-img-side{min-height:300px}
+  .about-content{padding:2.5rem 1.5rem}
+  .about-pillars{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.about-pillars{grid-template-columns:1fr}}
 
 /* ─── STATS ────────────────────────────────── */
 .stats-strip{
@@ -461,8 +494,8 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   .hero-feats{max-width:100%}
   .form-card{max-width:100%;width:100%}
   .hero h1{font-size:clamp(1.9rem,5vw,2.6rem)}
-  .about-grid,.areas-grid,.contact-grid{grid-template-columns:1fr}
-  .about-img,.areas-img{aspect-ratio:16/9}
+  .areas-grid,.contact-grid{grid-template-columns:1fr}
+  .areas-map{aspect-ratio:16/9;min-height:280px!important}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-item.tall{grid-row:span 1;aspect-ratio:4/3}
   .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
@@ -640,24 +673,6 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   </div>
 </section>
 
-<!-- ─── ABOUT ────────────────────────────────── -->
-<section class="sec" id="about">
-  <div class="inner">
-    <div class="about-grid">
-      <div class="about-copy">
-        <span class="tag">Our Story</span>
-        <h2 class="sec-title">Two Decades of Trusted Workmanship</h2>
-        <p class="lead">After setting up as a self-employed sole trader over 20 years ago, MPC Plastering &amp; General Building has built a strong reputation for quality workmanship, reliability and professionalism — primarily through word-of-mouth alone.</p>
-        <p>Over the years, we've established a loyal and repeat client base, providing services for fellow trade contractors, landlords, commercial clients and homeowners alike. Thanks to the continued support of our customers and recommendations from satisfied clients, our business has continued to grow year after year.</p>
-        <p>As a result, MPC has expanded into a larger workforce, allowing us to take on a wider range of projects while maintaining the high standards and personal service we've always been known for.</p>
-      </div>
-      <div class="about-img">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&auto=format&fit=crop&q=80" alt="Building construction Yorkshire" loading="lazy"/>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ─── STATS ─────────────────────────────────── -->
 <div class="stats-strip">
   <div class="stat"><div class="stat-num">20<b>+</b></div><div class="stat-lbl">Years in business</div></div>
@@ -665,6 +680,53 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   <div class="stat"><div class="stat-num">£1<b>m</b></div><div class="stat-lbl">Public liability cover</div></div>
   <div class="stat"><div class="stat-num">NVQ<b> L2</b></div><div class="stat-lbl">Qualified &amp; CSCS certified</div></div>
 </div>
+
+<!-- ─── ABOUT ────────────────────────────────── -->
+<section id="about" style="overflow:hidden">
+  <div class="about-wrap">
+
+    <div class="about-img-side">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format&fit=crop&q=85" alt="Building construction Yorkshire" loading="lazy"/>
+      <div class="about-img-overlay"></div>
+      <div class="about-badge">
+        <div class="about-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div>
+          <strong>20+ Years<br/>in Business</strong>
+          <span>Est. Huddersfield</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="tag">Our Story</span>
+      <h2>Two Decades of<br/><em>Trusted Workmanship</em></h2>
+      <p>After setting up as a self-employed sole trader over 20 years ago, MPC Plastering &amp; General Building has built a strong reputation for quality workmanship, reliability and professionalism — primarily through word-of-mouth alone.</p>
+      <p>Over the years, we've established a loyal and repeat client base, providing services for fellow trade contractors, landlords, commercial clients and homeowners alike. Thanks to the continued support of our customers and recommendations from satisfied clients, our business has continued to grow year after year.</p>
+      <p>As a result, MPC has expanded into a larger workforce, allowing us to take on a wider range of projects while maintaining the high standards and personal service we've always been known for.</p>
+      <div class="about-pillars">
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>NVQ Level 2 Qualified</span>
+        </div>
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>£1m Public Liability</span>
+        </div>
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>CSCS Certified</span>
+        </div>
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>80+ Years Combined Exp.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- ─── SERVICES ──────────────────────────────── -->
 <section class="sec sec-mist" id="services">

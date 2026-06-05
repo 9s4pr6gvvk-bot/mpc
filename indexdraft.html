@@ -41,6 +41,12 @@
       "geo": {"@type":"GeoCoordinates","latitude":53.6458,"longitude":-1.7850},
       "areaServed": ["Huddersfield","Halifax","Bradford","Leeds","Wakefield","Dewsbury","Barnsley","Sheffield","Yorkshire","Lanarkshire"],
       "priceRange": "££",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "14",
+        "bestRating": "5"
+      },
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61590256274433",
         "https://www.instagram.com/mpcplasteringandbuildingltd/"
@@ -65,6 +71,55 @@
     }
   ]
 }
+
+/* ── reviews slider ── */
+(function(){
+  var track = document.getElementById('rvTrack');
+  var dotsEl = document.getElementById('rvDots');
+  if(!track) return;
+  var cards = track.querySelectorAll('.rv-card');
+  var total = cards.length;
+  var cur = 0;
+
+  function perView(){
+    if(window.innerWidth <= 560) return 1;
+    if(window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  function pages(){ return Math.ceil(total / perView()); }
+
+  function buildDots(){
+    dotsEl.innerHTML = '';
+    for(var i=0;i<pages();i++){
+      var d=document.createElement('button');
+      d.className='rv-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Page '+(i+1));
+      d.dataset.i = i;
+      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(page){
+    var p = pages();
+    cur = Math.max(0, Math.min(page, p-1));
+    var pv = perView();
+    var cardW = cards[0].getBoundingClientRect().width;
+    var gap = 16;
+    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
+    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+  }
+
+  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
+  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
+
+  buildDots();
+  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
+  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
+
+  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
+})();
 </script>
 <link rel="icon" href="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -469,6 +524,43 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
 .lb-contact b{font-size:.82rem;color:#111;font-weight:700}
 .lb-divider{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem;color:var(--muted);font-size:.78rem;font-weight:600}
 .lb-divider::before,.lb-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+
+
+/* ── REVIEWS SLIDER ─────────────────────── */
+.rv-header{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.g-badge{display:inline-flex;align-items:center;gap:1.2rem;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.9rem 1.4rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.g-logo{display:flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:700;color:#5f6368;border-right:1px solid var(--line);padding-right:1.2rem}
+.g-rating-num{font-size:2rem;font-weight:800;color:#111;line-height:1}
+.g-stars-row{display:flex;gap:2px;margin:.2rem 0}
+.g-stars-row svg,.rv-stars svg{width:17px;height:17px}
+.g-count{font-size:.78rem;color:#5f6368;font-weight:500}
+.rv-controls{display:flex;align-items:center;gap:.6rem}
+.rv-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;transition:all .2s}
+.rv-btn:hover{border-color:var(--blue);background:var(--blue)}
+.rv-btn:hover svg{stroke:#fff}
+.rv-btn svg{width:16px;height:16px;stroke:#374151;transition:stroke .2s}
+.rv-track-wrap{overflow:hidden}
+.rv-track{display:flex;gap:1rem;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
+.rv-card{
+  flex:0 0 calc((100% - 2rem) / 3);
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:1.3rem;display:flex;flex-direction:column;gap:.8rem;
+}
+.rv-top{display:flex;align-items:center;gap:.7rem}
+.rv-avatar{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#fff;font-family:'Outfit',sans-serif}
+.rv-name{font-size:.88rem;font-weight:700;color:#111}
+.rv-meta{font-size:.7rem;color:#9CA3AF;margin-top:.1rem}
+.rv-mid{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.rv-stars{display:flex;gap:1px}
+.rv-date{font-size:.7rem;color:#9CA3AF;white-space:nowrap}
+.rv-text{font-size:.86rem;color:#374151;line-height:1.68;flex:1}
+.rv-more{font-size:.78rem;color:var(--blue);font-weight:600;text-decoration:none}
+.rv-more:hover{text-decoration:underline}
+.rv-dots{display:flex;gap:.4rem;justify-content:center;margin-top:1.2rem}
+.rv-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:0;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.rv-dot.active{background:var(--blue);transform:scale(1.25)}
+@media(max-width:900px){.rv-card{flex-basis:calc((100% - 1rem) / 2)}}
+@media(max-width:560px){.rv-card{flex-basis:100%}}
 </style>
 </head>
 <body>
@@ -645,6 +737,207 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
         <p>We know how frustrating it is when tradesmen go quiet. We aim to respond to every enquiry promptly and honestly.</p>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- ─── REVIEWS ──────────────────────────── -->
+<section class="sec sec-mist" id="reviews">
+  <div class="inner">
+    <div class="rv-header">
+      <div class="g-badge">
+        <div class="g-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg>
+          Google Reviews
+        </div>
+        <div>
+          <div class="g-rating-num">5.0</div>
+          <div class="g-stars-row"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="g-count">14 reviews</div>
+        </div>
+      </div>
+      <div class="rv-controls">
+        <button class="rv-btn" id="rvPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="rv-btn" id="rvNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="rv-track-wrap">
+      <div class="rv-track" id="rvTrack">
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#4285F4">RS</div>
+            <div><div class="rv-name">Robert Sykes</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">1 hour ago</span>
+          </div>
+          <p class="rv-text">We used MPC service great Communication from Nic arrived on time both for the Quotation and on the actual job, was very happy with the service workmen ship and will definitely recommend and use again.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#EA4335">TP</div>
+            <div><div class="rv-name">Tom Portman</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">3 hours ago</span>
+          </div>
+          <p class="rv-text">Excellent Team, Quality of Work, Value for Money and Always On Time What do you look for when you need any kind of work to done? What I look for is … <a class="rv-more" href="https://www.google.com/maps/contrib/117904437600761248983/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#34A853">SK</div>
+            <div><div class="rv-name">Sara K</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">13 hours ago</span>
+          </div>
+          <p class="rv-text">I can’t recommend Nick and his team highly enough. From the outset, they were professional, reliable, and transparent. They arrived exactly when they said they would, worked incredibly hard throughout the day, and completed the job on … <a class="rv-more" href="https://www.google.com/maps/contrib/115724028917660808339/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#FBBC05">LM</div>
+            <div><div class="rv-name">Lucas Murgatroyd</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">Top quality work and always a friendly reliable service. Couldn’t recommend enough!</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#9C27B0">JW</div>
+            <div><div class="rv-name">Julia Wood</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">I am so impressed with the attic gable end wall it’s perfect and the fact there was nothing to clean up just a quick wet dust round. I can’t thank you enough for the workmanship and respect of mums home leaving it so clean. Thanks Julia</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#FF5722">JT</div>
+            <div><div class="rv-name">Jordan Tindle</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">have used nick and his plastering team on all my jobs over the last ten years! excellent finish on all there work would highly reccomend</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#00BCD4">MH</div>
+            <div><div class="rv-name">Michael Harris</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">I have used Nick and his team several times and they have always been 1st class.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#4285F4">RC</div>
+            <div><div class="rv-name">Robert Copley</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">A Top class company!! Nick and his team always deliver great work, they are adaptable,flexible and ready to help with any issues on site to help other trades, and always as team players, I would highly reccomend these guys..they have … <a class="rv-more" href="https://www.google.com/maps/contrib/115425779696624427592/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#34A853">JH</div>
+            <div><div class="rv-name">James Haigh</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">Quality plaster work second to none! Never seen plaster so smooth</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#EA4335">MM</div>
+            <div><div class="rv-name">michael mallinson</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">15 hours ago</span>
+          </div>
+          <p class="rv-text">Have use Nick for a Number of years for jobs around my house and for other other jobs I would recommend to anybody very reasonably priced And very clean and tidy worker</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#FF9800">LS</div>
+            <div><div class="rv-name">Luke Sullivan</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">15 hours ago</span>
+          </div>
+          <p class="rv-text">Had MPC in to board and plaster our living room. Nick and team worked to a very high Standard and couldn’t fault a thing. Very clean and left no mess. Would recommend 👍🏻</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#9C27B0">JH</div>
+            <div><div class="rv-name">James Hartley</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">15 hours ago</span>
+          </div>
+          <p class="rv-text">Nick and his team are fantastic, from start to finish nothing but professional.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#00BCD4">AG</div>
+            <div><div class="rv-name">Anthony Gray</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">a month ago</span>
+          </div>
+          <p class="rv-text">Good team of workers, swift work, great prices for the quality of the work, honest communication! The only team of builders I’ve found to be direct and honest about what’s needed, costs, lengths of time and any potential changes the work may throw up.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#4285F4">BS</div>
+            <div><div class="rv-name">Ben Sullivan</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">a month ago</span>
+          </div>
+          <p class="rv-text">Organised,efficient and quality. Great experience from start to finish .</p>
+        </div>
+      </div>
+    </div>
+    <div class="rv-dots" id="rvDots"></div>
   </div>
 </section>
 
@@ -886,6 +1179,55 @@ document.addEventListener('DOMContentLoaded', function(){
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
   handleForm('lbForm','lbSuccess');
 });
+
+/* ── reviews slider ── */
+(function(){
+  var track = document.getElementById('rvTrack');
+  var dotsEl = document.getElementById('rvDots');
+  if(!track) return;
+  var cards = track.querySelectorAll('.rv-card');
+  var total = cards.length;
+  var cur = 0;
+
+  function perView(){
+    if(window.innerWidth <= 560) return 1;
+    if(window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  function pages(){ return Math.ceil(total / perView()); }
+
+  function buildDots(){
+    dotsEl.innerHTML = '';
+    for(var i=0;i<pages();i++){
+      var d=document.createElement('button');
+      d.className='rv-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Page '+(i+1));
+      d.dataset.i = i;
+      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(page){
+    var p = pages();
+    cur = Math.max(0, Math.min(page, p-1));
+    var pv = perView();
+    var cardW = cards[0].getBoundingClientRect().width;
+    var gap = 16;
+    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
+    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+  }
+
+  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
+  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
+
+  buildDots();
+  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
+  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
+
+  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
+})();
 </script>
 
 <!-- ── LIGHTBOX ──────────────────────────────── -->

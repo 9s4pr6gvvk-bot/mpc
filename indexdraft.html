@@ -39,7 +39,7 @@
         "addressCountry": "GB"
       },
       "geo": {"@type":"GeoCoordinates","latitude":53.6458,"longitude":-1.7850},
-      "areaServed": ["Huddersfield","Halifax","Bradford","Leeds","Wakefield","Dewsbury","Barnsley","Sheffield","Yorkshire","Lancashire"],
+      "areaServed": ["Huddersfield","Halifax","Bradford","Leeds","Wakefield","Dewsbury","Barnsley","Sheffield","Yorkshire","Lanarkshire"],
       "priceRange": "££",
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -490,28 +490,71 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none}
   .burger{display:flex}
-  .hero-inner{grid-template-columns:1fr;gap:2.2rem;padding:2rem 1.2rem}
+  .hero-inner{grid-template-columns:1fr;gap:2rem;padding:2rem 1.2rem}
   .hero-feats{max-width:100%}
   .form-card{max-width:100%;width:100%}
   .hero h1{font-size:clamp(1.9rem,5vw,2.6rem)}
-  .areas-grid,.contact-grid{grid-template-columns:1fr}
-  .areas-map{aspect-ratio:16/9;min-height:280px!important}
+  /* about */
+  .about-wrap{grid-template-columns:1fr}
+  .about-img-side{min-height:280px}
+  .about-content{padding:2.5rem 1.5rem}
+  .about-pillars{grid-template-columns:1fr 1fr}
+  /* areas */
+  .areas-grid{grid-template-columns:1fr}
+  .areas-map{aspect-ratio:unset!important;height:320px;min-height:unset!important;width:100%}
+  .areas-map iframe{width:100%!important;height:320px!important}
+  /* contact */
+  .contact-grid{grid-template-columns:1fr}
+  /* gallery */
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-item.tall{grid-row:span 1;aspect-ratio:4/3}
+  /* footer */
   .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
   .foot-social{justify-content:center}
   .foot-bottom{justify-content:center;text-align:center}
+  /* reviews */
+  .rv-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .rv-controls{align-self:flex-end}
+  /* social cta */
+  .social-cta{padding-inline:0}
 }
 @media(max-width:600px){
   :root{--nav-h:72px}
   .nav-logo{height:52px}
-  .svc-grid{grid-template-columns:1fr}
+  /* hero */
+  .hero-feats .feat span{font-size:.74rem}
+  /* stats */
   .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-right:1px solid rgba(255,255,255,.07)}
+  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,.07)}
+  /* services */
+  .svc-grid{grid-template-columns:1fr}
+  /* why */
   .why-grid{grid-template-columns:1fr}
   .why-item{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
   .why-item:last-child{border-bottom:0!important}
+  /* areas map — tighter on small phones */
+  .areas-map,.areas-map iframe{height:260px!important}
+  /* forms */
   .f2{grid-template-columns:1fr}
+  /* about pillars */
+  .about-pillars{grid-template-columns:1fr}
+  /* social */
   .social-btns{flex-direction:column;align-items:center}
+  /* reviews */
+  .g-badge{flex-wrap:wrap;gap:.8rem}
+  .g-logo{border-right:0;padding-right:0}
+  /* footer */
+  .foot-bottom{flex-direction:column;gap:.4rem}
+  /* sections padding */
+  .sec{padding-left:1.2rem;padding-right:1.2rem}
+  .inner{padding-inline:0}
+}
+@media(max-width:380px){
+  .hero h1{font-size:1.7rem}
+  .about-pillars{grid-template-columns:1fr}
+  .chips{gap:.4rem}
+  .chip{font-size:.76rem;padding:.35rem .75rem}
 }
 
 /* ── LIGHTBOX ──────────────────────────────── */
@@ -1042,7 +1085,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
       <div>
         <span class="tag">Where We Work</span>
         <h2 class="sec-title">Serving Yorkshire &amp; Beyond</h2>
-        <p class="sec-body">Based in Huddersfield, we serve homeowners, landlords, commercial clients and contractors right across Yorkshire and Lancashire. We're also happy to travel nationally for the right project.</p>
+        <p class="sec-body">Based in Huddersfield, we serve homeowners, landlords, commercial clients and contractors right across Yorkshire and Lanarkshire. We're also happy to travel nationally for the right project.</p>
         <div class="chips">
           <span class="chip hi">Huddersfield</span>
           <span class="chip">Halifax</span>
@@ -1053,7 +1096,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
           <span class="chip">Barnsley</span>
           <span class="chip">Sheffield</span>
           <span class="chip">All Yorkshire</span>
-          <span class="chip">Lancashire</span>
+          <span class="chip">Lanarkshire</span>
           <span class="chip">Nationwide on request</span>
         </div>
       </div>

@@ -557,6 +557,42 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   .chip{font-size:.76rem;padding:.35rem .75rem}
 }
 
+/* ── BEFORE / AFTER ─────────────────────────── */
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.ba-card{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.ba-slider-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;user-select:none;touch-action:none;cursor:col-resize}
+.ba-img{position:absolute;inset:0;width:100%;height:100%}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+.ba-img.after{clip-path:inset(0 0 0 50%)}
+.ba-divider{
+  position:absolute;top:0;bottom:0;left:50%;width:3px;
+  background:#fff;box-shadow:0 0 12px rgba(0,0,0,.4);
+  transform:translateX(-50%);pointer-events:none;z-index:3;
+  will-change:left;
+}
+.ba-handle{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.32);
+  display:flex;align-items:center;justify-content:center;
+  z-index:4;pointer-events:none;
+  transition:transform .15s,box-shadow .15s;
+  will-change:left;
+}
+.ba-slider-wrap.dragging .ba-handle{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 4px 24px rgba(0,0,0,.38)}
+.ba-handle svg{width:18px;height:18px;color:#374151}
+.ba-pill{
+  position:absolute;top:.65rem;z-index:4;
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.25rem .6rem;border-radius:999px;pointer-events:none;
+  transition:opacity .2s;
+}
+.ba-pill.before{left:.65rem;background:rgba(0,0,0,.55);color:#fff}
+.ba-pill.after{right:.65rem;background:var(--blue);color:#fff}
+@media(max-width:900px){.ba-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.ba-grid{grid-template-columns:1fr}}
+
 /* ── LIGHTBOX ──────────────────────────────── */
 .lb-overlay{
   position:fixed;inset:0;z-index:500;
@@ -1078,6 +1114,72 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   </div>
 </section>
 
+<!-- ─── BEFORE & AFTER ───────────────────────── -->
+<section class="sec" id="transformations">
+  <div class="inner">
+    <span class="tag">Real Results</span>
+    <h2 class="sec-title">Before &amp; After</h2>
+    <p class="sec-body" style="margin-bottom:2.5rem">Drag the slider left or right to reveal the transformation. Real project photos from jobs we've completed across Yorkshire.</p>
+    <div class="ba-grid">
+
+      <!-- Project 1 -->
+      <div class="ba-card">
+        <div class="ba-slider-wrap" data-ba>
+          <div class="ba-img before">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20.jpeg" alt="Before plastering project 1" loading="lazy"/>
+          </div>
+          <div class="ba-img after">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20%20(1).jpeg" alt="After plastering project 1" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+          </div>
+          <span class="ba-pill before">Before</span>
+          <span class="ba-pill after">After</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="ba-card">
+        <div class="ba-slider-wrap" data-ba>
+          <div class="ba-img before">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.30.jpeg" alt="Before plastering project 2" loading="lazy"/>
+          </div>
+          <div class="ba-img after">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.29.jpeg" alt="After plastering project 2" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+          </div>
+          <span class="ba-pill before">Before</span>
+          <span class="ba-pill after">After</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="ba-card">
+        <div class="ba-slider-wrap" data-ba>
+          <div class="ba-img before">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.43.19%20(1).jpeg" alt="Before plastering project 3" loading="lazy"/>
+          </div>
+          <div class="ba-img after">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.43.19.jpeg" alt="After plastering project 3" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+          </div>
+          <span class="ba-pill before">Before</span>
+          <span class="ba-pill after">After</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ─── AREAS ─────────────────────────────────── -->
 <section class="sec sec-mist" id="areas">
   <div class="inner">
@@ -1333,9 +1435,58 @@ document.addEventListener('DOMContentLoaded', function(){
 
   window.addEventListener('resize', function(){ buildDots(); goTo(0); });
 })();
-</script>
 
-<!-- ── LIGHTBOX ──────────────────────────────── -->
+/* ── before / after sliders ── */
+(function(){
+  document.querySelectorAll('[data-ba]').forEach(function(wrap){
+    var afterImg = wrap.querySelector('.ba-img.after');
+    var divider  = wrap.querySelector('.ba-divider');
+    var handle   = wrap.querySelector('.ba-handle');
+    var dragging = false;
+    var rafId    = null;
+    var pendingX = null;
+
+    function applyPos(x){
+      var rect = wrap.getBoundingClientRect();
+      var pct  = Math.min(100, Math.max(0, ((x - rect.left) / rect.width) * 100));
+      afterImg.style.clipPath = 'inset(0 0 0 ' + pct.toFixed(3) + '%)';
+      divider.style.left      = pct + '%';
+      handle.style.left       = pct + '%';
+    }
+
+    function scheduleUpdate(x){
+      pendingX = x;
+      if(rafId) return;
+      rafId = requestAnimationFrame(function(){
+        rafId = null;
+        if(pendingX !== null){ applyPos(pendingX); pendingX = null; }
+      });
+    }
+
+    /* pointer events — unified mouse + touch */
+    wrap.addEventListener('pointerdown', function(e){
+      e.preventDefault();
+      wrap.setPointerCapture(e.pointerId);
+      dragging = true;
+      wrap.classList.add('dragging');
+      scheduleUpdate(e.clientX);
+    });
+
+    wrap.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      scheduleUpdate(e.clientX);
+    });
+
+    function endDrag(){
+      dragging = false;
+      wrap.classList.remove('dragging');
+    }
+    wrap.addEventListener('pointerup',     endDrag);
+    wrap.addEventListener('pointercancel', endDrag);
+  });
+})();
+
+</script>
 <div class="lb-overlay" id="lbOverlay">
   <div class="lb-box" id="lbBox">
     <button class="lb-close" id="lbClose" aria-label="Close">

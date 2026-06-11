@@ -217,42 +217,83 @@ nav{
 /* ─── HERO ─────────────────────────────────── */
 .hero{
   min-height:100vh;padding-top:var(--nav-h);
-  display:flex;align-items:center;position:relative;
+  display:flex;align-items:flex-end;position:relative;
   background:url('https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg') center/cover no-repeat;
 }
 .hero::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(105deg,rgba(5,8,13,.9) 0%,rgba(5,8,13,.75) 55%,rgba(5,8,13,.55) 100%);
+  background:linear-gradient(
+    to bottom,
+    rgba(5,8,13,.15) 0%,
+    rgba(5,8,13,.25) 40%,
+    rgba(5,8,13,.82) 75%,
+    rgba(5,8,13,.96) 100%
+  );
 }
 .hero-inner{
   position:relative;z-index:2;width:100%;
   max-width:1300px;margin-inline:auto;
-  display:grid;grid-template-columns:1fr 360px;
-  gap:clamp(2rem,5vw,5rem);align-items:center;
-  padding:clamp(2.5rem,5vw,4rem) clamp(1.2rem,4vw,3rem);
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding:clamp(3rem,6vw,5.5rem) clamp(1.4rem,5vw,3.5rem);
+  padding-bottom:clamp(3.5rem,7vw,5.5rem);
 }
-.hero-left{color:#fff}
 .hero-eyebrow{
-  display:block;font-size:.72rem;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1rem;
+  display:block;font-size:.7rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1.2rem;
 }
 .hero h1{
-  font-size:clamp(2rem,4vw,3.2rem);font-weight:800;
-  line-height:1.08;letter-spacing:-.025em;margin-bottom:.85rem;color:#fff;
+  font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;
+  line-height:1.04;letter-spacing:-.03em;margin-bottom:1rem;color:#fff;
+  max-width:16ch;
 }
 .hero h1 em{font-style:normal;color:var(--blue-lt)}
 .hero-sub{
-  font-size:clamp(.9rem,1.3vw,1.05rem);color:rgba(255,255,255,.55);
-  line-height:1.72;max-width:44ch;margin-bottom:2.2rem;
+  font-size:clamp(.92rem,1.4vw,1.08rem);color:rgba(255,255,255,.6);
+  line-height:1.72;max-width:52ch;margin-bottom:2.4rem;
 }
-.hero-feats{display:flex;flex-direction:column;gap:.6rem;max-width:460px}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:3rem}
+.hero-cta-primary{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--blue);color:#fff;font-family:inherit;font-size:.95rem;font-weight:700;
+  padding:.9rem 2rem;border-radius:9px;border:0;cursor:pointer;
+  box-shadow:0 8px 28px -8px rgba(1,83,219,.75);
+  transition:background .2s,transform .18s,box-shadow .2s;
+  text-decoration:none;
+}
+.hero-cta-primary:hover{background:var(--blue-lt);transform:translateY(-2px);box-shadow:0 14px 36px -10px rgba(1,83,219,.85)}
+.hero-cta-primary svg{width:15px;height:15px}
+.hero-cta-secondary{
+  display:inline-flex;align-items:center;gap:.55rem;
+  color:rgba(255,255,255,.8);font-size:.88rem;font-weight:600;
+  text-decoration:none;transition:color .2s;
+}
+.hero-cta-secondary:hover{color:#fff}
+.hero-cta-secondary svg{width:14px;height:14px;opacity:.6}
+
+/* google badge in hero */
+.hero-google{
+  display:inline-flex;align-items:center;gap:.9rem;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  border-radius:12px;padding:.75rem 1.1rem;
+}
+.hero-google-logo{display:flex;align-items:center;gap:.45rem;padding-right:.9rem;border-right:1px solid rgba(255,255,255,.12)}
+.hero-google-logo span{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.7)}
+.hero-google-score{font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
+.hero-google-stars{display:flex;gap:2px;margin:.18rem 0}
+.hero-google-stars svg{width:13px;height:13px}
+.hero-google-count{font-size:.7rem;color:rgba(255,255,255,.45);font-weight:500}
+
+.hero-feats{display:flex;flex-direction:column;gap:.55rem;max-width:540px}
 .feat{
-  display:flex;align-items:center;gap:.85rem;padding:.75rem 1rem;
-  border-left:2px solid var(--blue);background:rgba(255,255,255,.04);border-radius:0 8px 8px 0;
+  display:flex;align-items:center;gap:.85rem;padding:.7rem 1rem;
+  border-left:2px solid rgba(1,83,219,.7);background:rgba(255,255,255,.04);
+  border-radius:0 8px 8px 0;backdrop-filter:blur(4px);
 }
-.feat svg{width:17px;height:17px;color:#5b9bff;flex:none}
-.feat strong{font-size:.92rem;font-weight:700;color:#fff;display:block}
-.feat span{font-size:.78rem;color:rgba(255,255,255,.42)}
+.feat svg{width:16px;height:16px;color:#5b9bff;flex:none}
+.feat strong{font-size:.88rem;font-weight:700;color:#fff;display:block}
+.feat span{font-size:.76rem;color:rgba(255,255,255,.38)}
 
 /* form card */
 .form-card{
@@ -294,6 +335,12 @@ textarea{resize:none;height:76px}
 .inner{max-width:1200px;margin-inline:auto}
 .sec-mist{background:var(--mist)}
 .sec-dark{background:var(--dark);color:#fff}
+#contact{
+  background:
+    linear-gradient(135deg, rgba(5,8,13,.88) 0%, rgba(1,40,120,.75) 50%, rgba(5,8,13,.92) 100%),
+    url('https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg') center/cover no-repeat;
+  position:relative;
+}
 .sec-blue{background:var(--blue);color:#fff}
 .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.85rem}
 .sec-dark .tag,.sec-blue .tag{color:rgba(255,255,255,.55)}
@@ -523,10 +570,9 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none}
   .burger{display:flex}
-  .hero-inner{grid-template-columns:1fr;gap:2rem;padding:2rem 1.2rem}
+  .hero-inner{padding:2rem 1.4rem;padding-bottom:3rem}
+  .hero h1{font-size:clamp(2rem,6vw,3rem)}
   .hero-feats{max-width:100%}
-  .form-card{max-width:100%;width:100%}
-  .hero h1{font-size:clamp(1.9rem,5vw,2.6rem)}
   /* about */
   .about-wrap{grid-template-columns:1fr}
   .about-img-side{min-height:280px}
@@ -743,43 +789,37 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
 <!-- ─── HERO ─────────────────────────────────── -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <div class="hero-left">
-      <span class="hero-eyebrow">Huddersfield · Yorkshire · Est. 20+ Years</span>
-      <h1>Plastering &amp; Building<br/><em>Done Properly</em></h1>
-      <p class="hero-sub">MPC Plastering &amp; General Building Ltd — quality workmanship and honest service built on over two decades of experience and word-of-mouth reputation.</p>
-      <div class="hero-feats">
-        <div class="feat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <div><strong>Fully Insured</strong><span>£1 million public liability cover</span></div>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div><strong>80+ Years' Combined Experience</strong><span>NVQ Level 2 qualified · CSCS certified</span></div>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <div><strong>All Project Sizes</strong><span>Patch repairs to full new builds &amp; re-roofs</span></div>
-        </div>
-      </div>
+    <span class="hero-eyebrow">Huddersfield · Yorkshire · Est. 20+ Years</span>
+    <h1>Plastering &amp; Building<br/><em>Done Properly</em></h1>
+    <p class="hero-sub">MPC Plastering &amp; General Building Ltd — quality workmanship and honest service built on over two decades of experience and word-of-mouth reputation.</p>
+
+    <div class="hero-actions">
+      <button class="hero-cta-primary" onclick="openLb()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Get a Free Quote
+      </button>
+      <a class="hero-cta-secondary" href="tel:+447588026732">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 11.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        07588 026 732
+      </a>
     </div>
 
-    <div class="form-card">
-      <h2>Get a Free Quote</h2>
-      <p class="fc-sub">We'll get back to you as soon as possible.</p>
-      <form id="heroForm" novalidate>
-        <div class="f2">
-          <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
-          <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
+    <!-- Google rating badge -->
+    <div class="hero-google">
+      <div class="hero-google-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg>
+        <span>Google</span>
+      </div>
+      <div>
+        <div class="hero-google-score">5.0</div>
+        <div class="hero-google-stars">
+          <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
-        <div class="field"><label>Message *</label><textarea name="message" required placeholder="Tell us about the job…"></textarea></div>
-        <button class="submit" type="submit">Send Enquiry</button>
-        <p class="fnote">Free &amp; no obligation · Huddersfield &amp; all Yorkshire</p>
-      </form>
-      <div class="form-success" id="heroSuccess">
-        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3>Thanks — we'll be in touch!</h3>
-        <p>Enquiry received. We'll respond as soon as possible.</p>
+        <div class="hero-google-count">14 reviews</div>
       </div>
     </div>
   </div>
@@ -1441,7 +1481,7 @@ async function handleForm(formId, successId){
     }
   });
 }
-handleForm('heroForm','heroSuccess');
+
 handleForm('contactForm','contactSuccess');
 
 /* ── lightbox ── */

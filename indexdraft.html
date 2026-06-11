@@ -223,11 +223,10 @@ nav{
 .hero::before{
   content:"";position:absolute;inset:0;
   background:linear-gradient(
-    to bottom,
-    rgba(5,8,13,.15) 0%,
-    rgba(5,8,13,.25) 40%,
-    rgba(5,8,13,.82) 75%,
-    rgba(5,8,13,.96) 100%
+    to right,
+    rgba(5,8,13,.95) 0%,
+    rgba(5,8,13,.75) 50%,
+    rgba(5,8,13,.15) 100%
   );
 }
 .hero-inner{
@@ -337,8 +336,8 @@ textarea{resize:none;height:76px}
 .sec-dark{background:var(--dark);color:#fff}
 #contact{
   background:
-    linear-gradient(135deg, rgba(5,8,13,.88) 0%, rgba(1,40,120,.75) 50%, rgba(5,8,13,.92) 100%),
-    url('https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg') center/cover no-repeat;
+    linear-gradient(to right, rgba(5,8,13,.97) 0%, rgba(5,8,13,.88) 45%, rgba(5,8,13,.65) 100%),
+    url('https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg') center 30%/cover no-repeat;
   position:relative;
 }
 .sec-blue{background:var(--blue);color:#fff}
@@ -458,16 +457,19 @@ textarea{resize:none;height:76px}
 .gallery-item:hover .gallery-overlay{background:rgba(0,0,0,.28)}
 
 /* ── GALLERY CAROUSEL (mobile only) ── */
-.gallery-carousel{display:none}
+.gallery-carousel{display:block}
 .gc-track-wrap{overflow:hidden;border-radius:14px}
 .gc-track{
   display:flex;gap:.75rem;
   transition:transform .38s cubic-bezier(.25,.8,.25,1);
 }
 .gc-slide{
-  flex:0 0 82vw;max-width:340px;
+  flex:0 0 420px;
   border-radius:12px;overflow:hidden;
-  background:#f0f0f0;aspect-ratio:1/1;position:relative;
+  background:#f0f0f0;aspect-ratio:4/3;position:relative;
+}
+@media(max-width:500px){
+  .gc-slide{flex:0 0 85vw}
 }
 .gc-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .gc-nav{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1rem}
@@ -483,10 +485,7 @@ textarea{resize:none;height:76px}
 .gc-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:0;cursor:pointer;padding:0;transition:background .2s,transform .2s}
 .gc-dot.active{background:var(--blue);transform:scale(1.3)}
 
-@media(max-width:700px){
-  .gallery-grid{display:none}
-  .gallery-carousel{display:block}
-}
+.gallery-grid{display:none}
 
 /* ─── AREAS ────────────────────────────────── */
 .areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
@@ -528,7 +527,7 @@ textarea{resize:none;height:76px}
 .citem small{display:block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.1rem}
 .citem b{font-size:.94rem;color:#fff}
 .contact-form-card{background:#fff;border-radius:14px;padding:2rem;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.contact-form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:.2rem}
+.contact-form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:.2rem;color:#111}
 .contact-form-card .cfc-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.4rem}
 
 /* ─── FOOTER ───────────────────────────────── */
@@ -586,8 +585,6 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   /* contact */
   .contact-grid{grid-template-columns:1fr}
   /* gallery */
-  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
-  .gallery-item.wide{grid-column:span 2}
   /* footer */
   .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
   .foot-social{justify-content:center}

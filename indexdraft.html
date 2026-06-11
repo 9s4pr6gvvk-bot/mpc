@@ -10,13 +10,13 @@
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd"/>
 <meta property="og:description" content="Expert plastering, rendering, roofing and general building across Yorkshire. 20+ years experience, NVQ qualified, £1m insured. Free no-obligation quotes."/>
-<meta property="og:image" content="https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1200&auto=format&fit=crop"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg"/>
 <meta property="og:url" content="https://www.mpcplastering-building.co.uk/"/>
 <meta property="og:site_name" content="MPC Plastering & General Building Ltd"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd"/>
 <meta name="twitter:description" content="Expert plastering, rendering, roofing and building across Yorkshire. Free quotes. NVQ qualified. £1m insured."/>
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1200&auto=format&fit=crop"/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg"/>
 <meta name="geo.region" content="GB-KIR"/>
 <meta name="geo.placename" content="Huddersfield, West Yorkshire"/>
 <script type="application/ld+json">
@@ -218,7 +218,7 @@ nav{
 .hero{
   min-height:100vh;padding-top:var(--nav-h);
   display:flex;align-items:center;position:relative;
-  background:url('https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1440&auto=format&fit=crop') center/cover no-repeat;
+  background:url('https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg') center/cover no-repeat;
 }
 .hero::before{
   content:"";position:absolute;inset:0;
@@ -384,29 +384,62 @@ textarea{resize:none;height:76px}
 .why-item p{font-size:.88rem;color:rgba(255,255,255,.48);line-height:1.72}
 
 /* ─── GALLERY ──────────────────────────────── */
+/* ── GALLERY GRID (desktop / tablet) ── */
+.gallery-wrap{position:relative}
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto;
+  grid-auto-rows:240px;
   gap:1rem;
 }
-.gallery-item{border-radius:10px;overflow:hidden;aspect-ratio:4/3;position:relative;cursor:pointer}
-.gallery-item.tall{grid-row:span 2;aspect-ratio:auto}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s;display:block}
-.gallery-item:hover img{transform:scale(1.05);filter:brightness(.85)}
+.gallery-item{
+  border-radius:12px;overflow:hidden;position:relative;cursor:pointer;
+  background:#f0f0f0;
+}
+.gallery-item.wide{grid-column:span 2}
+.gallery-item.tall{grid-row:span 2}
+.gallery-item img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .45s ease,filter .45s ease;display:block;
+}
+.gallery-item:hover img{transform:scale(1.06);filter:brightness(.82)}
 .gallery-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,.0);
+  position:absolute;inset:0;background:transparent;
   display:flex;align-items:center;justify-content:center;
   transition:background .3s;
 }
-.gallery-item:hover .gallery-overlay{background:rgba(0,0,0,.3)}
-.gallery-coming{
-  grid-column:1/-1;text-align:center;padding:3.5rem;
-  border:1.5px dashed var(--line);border-radius:12px;background:var(--mist);
+.gallery-item:hover .gallery-overlay{background:rgba(0,0,0,.28)}
+
+/* ── GALLERY CAROUSEL (mobile only) ── */
+.gallery-carousel{display:none}
+.gc-track-wrap{overflow:hidden;border-radius:14px}
+.gc-track{
+  display:flex;gap:.75rem;
+  transition:transform .38s cubic-bezier(.25,.8,.25,1);
 }
-.gallery-coming svg{width:36px;height:36px;color:#C4C9D4;margin:0 auto .9rem}
-.gallery-coming h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
-.gallery-coming p{color:var(--muted);font-size:.92rem}
+.gc-slide{
+  flex:0 0 82vw;max-width:340px;
+  border-radius:12px;overflow:hidden;
+  background:#f0f0f0;aspect-ratio:1/1;position:relative;
+}
+.gc-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.gc-nav{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-top:1rem}
+.gc-btn{
+  width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);
+  background:#fff;cursor:pointer;display:grid;place-items:center;transition:all .2s;
+  flex:none;
+}
+.gc-btn:hover{border-color:var(--blue);background:var(--blue)}
+.gc-btn:hover svg{stroke:#fff}
+.gc-btn svg{width:16px;height:16px;stroke:#374151;transition:stroke .2s}
+.gc-dots{display:flex;gap:.4rem}
+.gc-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:0;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.gc-dot.active{background:var(--blue);transform:scale(1.3)}
+
+@media(max-width:700px){
+  .gallery-grid{display:none}
+  .gallery-carousel{display:block}
+}
 
 /* ─── AREAS ────────────────────────────────── */
 .areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
@@ -506,8 +539,8 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   /* contact */
   .contact-grid{grid-template-columns:1fr}
   /* gallery */
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-item.tall{grid-row:span 1;aspect-ratio:4/3}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .gallery-item.wide{grid-column:span 2}
   /* footer */
   .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
   .foot-social{justify-content:center}
@@ -765,7 +798,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   <div class="about-wrap">
 
     <div class="about-img-side">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format&fit=crop&q=85" alt="Building construction Yorkshire" loading="lazy"/>
+      <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20%20(1).jpeg" alt="Building construction Yorkshire" loading="lazy"/>
       <div class="about-img-overlay"></div>
       <div class="about-badge">
         <div class="about-badge-icon">
@@ -815,7 +848,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
     <p class="sec-body" style="margin-bottom:2.5rem">From a small patch repair to a full new build — one trusted team handles it all, saving you the hassle of dealing with multiple tradesmen.</p>
     <div class="svc-grid">
       <a class="svc-card" href="plastering.html" style="display:block;text-decoration:none;color:inherit">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45249ff38?w=600&auto=format&fit=crop&q=80" alt="Plastering Huddersfield" loading="lazy"/></div>
+        <div class="svc-img"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47.jpeg" alt="Plastering Huddersfield" loading="lazy"/></div>
         <div class="svc-body">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-5h6v5"/></svg></div>
           <h3>Plastering</h3>
@@ -824,7 +857,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
         </div>
       </a>
       <div class="svc-card">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&auto=format&fit=crop&q=80" alt="General building Huddersfield" loading="lazy"/></div>
+        <div class="svc-img"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.31.35.jpeg" alt="General building Huddersfield" loading="lazy"/></div>
         <div class="svc-body">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
           <h3>General Building</h3>
@@ -832,7 +865,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
         </div>
       </div>
       <div class="svc-card">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&auto=format&fit=crop&q=80" alt="Roofing Huddersfield Yorkshire" loading="lazy"/></div>
+        <div class="svc-img"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.39.33.jpeg" alt="Roofing Huddersfield Yorkshire" loading="lazy"/></div>
         <div class="svc-body">
           <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 3l9 9"/><path d="M5 10v9h14v-9"/></svg></div>
           <h3>Roofing</h3>
@@ -1087,30 +1120,68 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
   <div class="inner">
     <span class="tag">Our Work</span>
     <h2 class="sec-title">Project Gallery</h2>
-    <p class="sec-body" style="margin-bottom:2.5rem">Real project photos coming soon — follow us on social media to see our latest work in the meantime.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item tall">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=80" alt="Plastering work" loading="lazy"/>
-        <div class="gallery-overlay"></div>
+    <p class="sec-body" style="margin-bottom:2.5rem">A selection of our recent work across Yorkshire — plastering, rendering, roofing and general building.</p>
+    <div class="gallery-wrap">
+      <!-- Desktop grid -->
+      <div class="gallery-grid">
+        <div class="gallery-item wide">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.31.56.jpeg" alt="MPC plastering project" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.35.02.jpeg" alt="MPC building project" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.35.52.jpeg" alt="MPC rendering project" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.37.05.jpeg" alt="MPC roofing project" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.49.04.jpeg" alt="MPC building work" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item wide">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47.jpeg" alt="Plastering finish Huddersfield" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.31.35.jpeg" alt="General building Yorkshire" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.39.33.jpeg" alt="Roofing Huddersfield" loading="lazy"/>
+          <div class="gallery-overlay"></div>
+        </div>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1621905251189-08b45249ff38?w=600&auto=format&fit=crop&q=80" alt="Plastering" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Building work" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&auto=format&fit=crop&q=80" alt="Construction" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&auto=format&fit=crop&q=80" alt="Roofing Huddersfield Yorkshire" loading="lazy"/>
-        <div class="gallery-overlay"></div>
+      <!-- Mobile carousel -->
+      <div class="gallery-carousel">
+        <div class="gc-track-wrap">
+          <div class="gc-track" id="gcTrack">
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.31.56.jpeg" alt="MPC project" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.35.02.jpeg" alt="MPC project" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.35.52.jpeg" alt="MPC project" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.37.05.jpeg" alt="MPC project" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.49.04.jpeg" alt="MPC project" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47.jpeg" alt="Plastering" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.31.35.jpeg" alt="Building" loading="lazy"/></div>
+            <div class="gc-slide"><img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.39.33.jpeg" alt="Roofing" loading="lazy"/></div>
+          </div>
+        </div>
+        <div class="gc-nav">
+          <button class="gc-btn" id="gcPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="gc-dots" id="gcDots"></div>
+          <button class="gc-btn" id="gcNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </div>
-    <p style="text-align:center;margin-top:1.5rem;font-size:.85rem;color:var(--muted)">Stock photos shown — real project photography coming soon</p>
   </div>
 </section>
 
@@ -1486,6 +1557,44 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 })();
 
+/* ── gallery carousel (mobile) ── */
+(function(){
+  var track = document.getElementById('gcTrack');
+  var dotsEl = document.getElementById('gcDots');
+  if(!track) return;
+  var slides = track.querySelectorAll('.gc-slide');
+  var total = slides.length;
+  var cur = 0;
+
+  for(var i=0;i<total;i++){
+    var d = document.createElement('button');
+    d.className = 'gc-dot' + (i===0?' active':'');
+    d.setAttribute('aria-label','Slide '+(i+1));
+    d.dataset.i = i;
+    d.addEventListener('click', function(){ goTo(+this.dataset.i); });
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n){
+    cur = (n + total) % total;
+    var slideW = slides[0].getBoundingClientRect().width || slides[0].offsetWidth;
+    var gap = 12;
+    track.style.transform = 'translateX(-' + (cur * (slideW + gap)) + 'px)';
+    dotsEl.querySelectorAll('.gc-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+  }
+
+  document.getElementById('gcPrev').addEventListener('click', function(){ goTo(cur-1); });
+  document.getElementById('gcNext').addEventListener('click', function(){ goTo(cur+1); });
+
+  var touchStartX = 0;
+  track.parentElement.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+  track.parentElement.addEventListener('touchend', function(e){
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) goTo(diff > 0 ? cur+1 : cur-1);
+  }, {passive:true});
+
+  window.addEventListener('resize', function(){ goTo(cur); });
+})();
 </script>
 <div class="lb-overlay" id="lbOverlay">
   <div class="lb-box" id="lbBox">

@@ -241,6 +241,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:#000;border-botto
 .step p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
 
 /* ─── CHECKLIST ─────────────────────────── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr}}
 .checklist{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
 .check-item{display:flex;align-items:flex-start;gap:.7rem;padding:.7rem .9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px}
 .check-item svg{width:17px;height:17px;color:#5b9bff;flex:none;margin-top:1px}
@@ -327,7 +329,6 @@ textarea{resize:none;height:80px}
   .process-steps::before{display:none}
   .checklist{grid-template-columns:1fr}
   .cta-band{flex-direction:column;text-align:center}
-  .cta-btns{justify-content:center}
   .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
   .foot-social{justify-content:center}
   .foot-bottom{justify-content:center;text-align:center}
@@ -560,7 +561,7 @@ textarea{resize:none;height:80px}
 
 <!-- ─── WHY US FOR PLASTERING ────────────── -->
 <section class="sec sec-mist">
-  <div class="inner" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start">
+  <div class="inner why-grid">
     <div>
       <span class="tag">Why Choose MPC</span>
       <h2 class="sec-title">Plasterers You Can Trust</h2>

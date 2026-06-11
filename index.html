@@ -3,737 +3,167 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd</title>
-<meta name="description" content="MPC Plastering & General Building Ltd — expert plastering, rendering, roofing, extensions & general building across Yorkshire. 20+ years experience, NVQ qualified, £1m insured. Free quotes."/>
-<meta name="keywords" content="plasterer Huddersfield, builder Huddersfield, plastering Yorkshire, rendering Huddersfield, roofing Huddersfield, general builder Yorkshire, plastering and building Huddersfield, MPC plastering"/>
-<link rel="canonical" href="https://www.mpcplastering-building.co.uk/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd"/>
-<meta property="og:description" content="Expert plastering, rendering, roofing and general building across Yorkshire. 20+ years experience, NVQ qualified, £1m insured. Free no-obligation quotes."/>
-<meta property="og:image" content="https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1200&auto=format&fit=crop"/>
-<meta property="og:url" content="https://www.mpcplastering-building.co.uk/"/>
-<meta property="og:site_name" content="MPC Plastering & General Building Ltd"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd"/>
-<meta name="twitter:description" content="Expert plastering, rendering, roofing and building across Yorkshire. Free quotes. NVQ qualified. £1m insured."/>
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1200&auto=format&fit=crop"/>
-<meta name="geo.region" content="GB-KIR"/>
-<meta name="geo.placename" content="Huddersfield, West Yorkshire"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://www.mpcplastering-building.co.uk/#business",
-      "name": "MPC Plastering & General Building Ltd",
-      "description": "Professional plastering and general building services across Yorkshire. Over 20 years experience. NVQ qualified, CSCS certified, £1m insured.",
-      "url": "https://www.mpcplastering-building.co.uk",
-      "telephone": "+447588026732",
-      "email": "mpcplasteringbuilding@yahoo.com",
-      "foundingDate": "2004",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Huddersfield",
-        "addressRegion": "West Yorkshire",
-        "addressCountry": "GB"
-      },
-      "geo": {"@type":"GeoCoordinates","latitude":53.6458,"longitude":-1.7850},
-      "areaServed": ["Huddersfield","Halifax","Bradford","Leeds","Wakefield","Dewsbury","Barnsley","Sheffield","Yorkshire","Lancashire"],
-      "priceRange": "££",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "14",
-        "bestRating": "5"
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61590256274433",
-        "https://www.instagram.com/mpcplasteringandbuildingltd/"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Building & Plastering Services",
-        "itemListElement": [
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Plastering & Rendering","areaServed":"Yorkshire"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Roofing","areaServed":"Yorkshire"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"General Building","areaServed":"Yorkshire"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Project Management","areaServed":"Yorkshire"}}
-        ]
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.mpcplastering-building.co.uk/#website",
-      "url": "https://www.mpcplastering-building.co.uk",
-      "name": "MPC Plastering & General Building Ltd",
-      "publisher": {"@id":"https://www.mpcplastering-building.co.uk/#business"}
-    }
-  ]
-}
-
-/* ── reviews slider ── */
-(function(){
-  var track = document.getElementById('rvTrack');
-  var dotsEl = document.getElementById('rvDots');
-  if(!track) return;
-  var cards = track.querySelectorAll('.rv-card');
-  var total = cards.length;
-  var cur = 0;
-
-  function perView(){
-    if(window.innerWidth <= 560) return 1;
-    if(window.innerWidth <= 900) return 2;
-    return 3;
-  }
-
-  function pages(){ return Math.ceil(total / perView()); }
-
-  function buildDots(){
-    dotsEl.innerHTML = '';
-    for(var i=0;i<pages();i++){
-      var d=document.createElement('button');
-      d.className='rv-dot'+(i===0?' active':'');
-      d.setAttribute('aria-label','Page '+(i+1));
-      d.dataset.i = i;
-      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
-      dotsEl.appendChild(d);
-    }
-  }
-
-  function goTo(page){
-    var p = pages();
-    cur = Math.max(0, Math.min(page, p-1));
-    var pv = perView();
-    var cardW = cards[0].getBoundingClientRect().width;
-    var gap = 16;
-    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
-    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
-  }
-
-  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
-  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
-
-  buildDots();
-  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
-  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
-
-  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
-})();
-</script>
-<link rel="icon" href="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png"/>
+<title>MPC Plastering & General Building Ltd — Huddersfield</title>
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
-/* ─── RESET & BASE ─────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',system-ui,sans-serif;background:#fff;color:#111;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
+html,body{height:100%}
+body{font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:#111}
 
-/* ─── VARIABLES ────────────────────────────── */
-:root{
-  --blue:#0153DB;
-  --blue-lt:#1461F0;
-  --dark:#0C0F14;
-  --mist:#F5F7FA;
-  --muted:#6B7280;
-  --line:#E5E7EB;
-  --nav-h:88px;
-}
-
-/* ─── NAV ──────────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
+/* ── HEADER ─────────────────────────────────── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
   background:#000;
   border-bottom:1px solid rgba(255,255,255,.08);
-  height:var(--nav-h);
+  height:96px;display:flex;align-items:center;
+  padding:0 clamp(1.5rem,5vw,4rem);
+  justify-content:space-between;gap:1rem;
 }
-.nav-inner{
-  max-width:1300px;margin-inline:auto;height:100%;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(1.2rem,4vw,3rem);gap:1rem;
+header img{height:72px;width:auto;max-width:320px;object-fit:contain}
+.coming-soon{
+  font-size:.75rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.5);
+  display:flex;align-items:center;gap:.5rem;white-space:nowrap;
 }
-.nav-logo{height:68px;width:auto;display:block}
-.nav-links{
-  display:flex;align-items:center;gap:clamp(.8rem,2vw,2rem);
-}
-.nav-links a{
-  font-size:.88rem;font-weight:600;color:rgba(255,255,255,.65);
-  letter-spacing:.02em;transition:color .2s;padding:.3rem 0;
-  position:relative;
-}
-.nav-links a::after{
-  content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;
-  background:var(--blue);transform:scaleX(0);transition:transform .25s;
-}
-.nav-links a:hover,
-.nav-links a.active{color:#fff}
-.nav-links a:hover::after,
-.nav-links a.active::after{transform:scaleX(1)}
-.nav-cta{
-  background:var(--blue);color:#fff;
-  font-size:.85rem;font-weight:700;
-  padding:.65rem 1.4rem;border-radius:7px;
-  transition:background .2s,box-shadow .2s,transform .2s;
-  white-space:nowrap;
-  box-shadow:0 4px 14px -4px rgba(1,83,219,.7);
-  display:inline-flex;align-items:center;gap:.45rem;
-}
-.nav-cta:hover{background:var(--blue-lt);box-shadow:0 8px 20px -6px rgba(1,83,219,.85);transform:translateY(-1px)}
-.nav-cta::after{display:none!important}
-.nav-cta svg{width:14px;height:14px}
+.hd{width:6px;height:6px;border-radius:50%;background:#0153DB;flex:none;animation:blink 2.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* hamburger */
-.burger{
-  display:none;flex-direction:column;gap:5px;
-  background:none;border:none;cursor:pointer;padding:.4rem;
-}
-.burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-
-/* mobile nav drawer */
-.nav-drawer{
-  display:none;position:fixed;top:var(--nav-h);left:0;right:0;
-  background:#000;border-bottom:1px solid rgba(255,255,255,.08);
-  padding:1.2rem 1.5rem 1.5rem;z-index:199;
-  flex-direction:column;gap:.2rem;
-}
-.nav-drawer.open{display:flex}
-.nav-drawer a{
-  color:rgba(255,255,255,.7);font-size:1rem;font-weight:600;
-  padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06);
-  transition:color .2s;
-}
-.nav-drawer a:last-child{border-bottom:0;margin-top:.5rem}
-.nav-drawer a:hover{color:#fff}
-.nav-drawer .nd-cta{
-  background:var(--blue);color:#fff;text-align:center;
-  border-radius:8px;padding:.9rem;border-bottom:0;margin-top:.5rem;
-}
-
-/* ─── HERO ─────────────────────────────────── */
+/* ── HERO ───────────────────────────────────── */
 .hero{
-  min-height:100vh;padding-top:var(--nav-h);
-  display:flex;align-items:center;position:relative;
+  min-height:100vh;padding-top:96px;
+  display:flex;align-items:center;
   background:url('https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1440&auto=format&fit=crop') center/cover no-repeat;
+  position:relative;
 }
 .hero::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(105deg,rgba(5,8,13,.9) 0%,rgba(5,8,13,.75) 55%,rgba(5,8,13,.55) 100%);
+  background:linear-gradient(100deg,rgba(5,8,13,.88) 0%,rgba(5,8,13,.72) 55%,rgba(5,8,13,.60) 100%);
 }
 .hero-inner{
   position:relative;z-index:2;width:100%;
   max-width:1300px;margin-inline:auto;
   display:grid;grid-template-columns:1fr 360px;
-  gap:clamp(2rem,5vw,5rem);align-items:center;
-  padding:clamp(2.5rem,5vw,4rem) clamp(1.2rem,4vw,3rem);
+  gap:clamp(2rem,4vw,5rem);align-items:center;
+  padding:clamp(2.5rem,5vw,4.5rem) clamp(1.5rem,5vw,4rem);
 }
-.hero-left{color:#fff}
-.hero-eyebrow{
-  display:block;font-size:.72rem;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1rem;
+
+/* ── LEFT ─ */
+.left{color:#fff;max-width:560px}
+.eyebrow{
+  font-size:.72rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.45);
+  margin-bottom:1.1rem;display:block;
 }
-.hero h1{
-  font-size:clamp(2rem,4vw,3.2rem);font-weight:800;
-  line-height:1.08;letter-spacing:-.025em;margin-bottom:.85rem;color:#fff;
+h1{
+  font-size:clamp(1.9rem,3.8vw,3rem);font-weight:800;
+  line-height:1.1;letter-spacing:-.025em;margin-bottom:.85rem;
 }
-.hero h1 em{font-style:normal;color:var(--blue-lt)}
-.hero-sub{
-  font-size:clamp(.9rem,1.3vw,1.05rem);color:rgba(255,255,255,.55);
-  line-height:1.72;max-width:44ch;margin-bottom:2.2rem;
+.sub{
+  font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.52);
+  line-height:1.7;max-width:44ch;margin-bottom:2.4rem;
 }
-.hero-feats{display:flex;flex-direction:column;gap:.6rem;max-width:460px}
+.features{display:flex;flex-direction:column;gap:.6rem;max-width:460px}
 .feat{
-  display:flex;align-items:center;gap:.85rem;padding:.75rem 1rem;
-  border-left:2px solid var(--blue);background:rgba(255,255,255,.04);border-radius:0 8px 8px 0;
+  display:flex;align-items:center;gap:.85rem;
+  padding:.75rem 1rem;
+  border-left:2px solid #0153DB;
+  background:rgba(255,255,255,.04);
+  border-radius:0 8px 8px 0;
 }
 .feat svg{width:17px;height:17px;color:#5b9bff;flex:none}
-.feat strong{font-size:.92rem;font-weight:700;color:#fff;display:block}
-.feat span{font-size:.78rem;color:rgba(255,255,255,.42)}
+.feat-text strong{font-size:.92rem;font-weight:700;color:#fff;display:block}
+.feat-text span{font-size:.78rem;color:rgba(255,255,255,.42)}
 
-/* form card */
+/* ── RIGHT / FORM ─ */
 .form-card{
   background:#fff;border-radius:12px;
-  padding:1.7rem 1.5rem;
+  padding:1.6rem 1.5rem;
   box-shadow:0 24px 60px rgba(0,0,0,.5);
 }
-.form-card h2{font-size:1.1rem;font-weight:800;color:#111;margin-bottom:.2rem}
-.form-card .fc-sub{font-size:.8rem;color:var(--muted);margin-bottom:1.3rem}
-.field{margin-bottom:.7rem}
-label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#374151;margin-bottom:.32rem}
+.form-card h2{font-size:1.05rem;font-weight:800;color:#111;margin-bottom:.2rem}
+.form-card .sub2{font-size:.8rem;color:#9CA3AF;margin-bottom:1.2rem}
+.field{margin-bottom:.65rem}
+label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6B7280;margin-bottom:.3rem}
 input,select,textarea{
-  width:100%;font:inherit;font-size:.92rem;color:#111;
-  background:var(--mist);border:1.5px solid var(--line);border-radius:7px;
-  padding:.65rem .9rem;transition:border-color .18s,box-shadow .18s;
+  width:100%;font:inherit;font-size:.9rem;color:#111;
+  background:#F5F7FA;border:1.5px solid #E5E7EB;border-radius:6px;
+  padding:.6rem .8rem;transition:border-color .18s,box-shadow .18s;
 }
 input::placeholder,textarea::placeholder{color:#C4C9D4}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(1,83,219,.09);background:#fff}
-textarea{resize:none;height:76px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:#0153DB;box-shadow:0 0 0 3px rgba(1,83,219,.09);background:#fff}
+textarea{resize:none;height:72px}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
 .submit{
-  width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;font-weight:700;
-  color:#fff;background:var(--blue);border:0;border-radius:7px;
-  padding:.8rem;cursor:pointer;transition:background .2s,transform .15s;
+  width:100%;margin-top:.3rem;
+  font-family:inherit;font-size:.92rem;font-weight:700;
+  color:#fff;background:#0153DB;border:0;border-radius:6px;
+  padding:.78rem;cursor:pointer;
+  transition:background .2s,transform .15s;
   box-shadow:0 6px 18px -6px rgba(1,83,219,.65);
 }
-.submit:hover{background:var(--blue-lt);transform:translateY(-1px)}
+.submit:hover{background:#1461F0;transform:translateY(-1px)}
 .submit:disabled{opacity:.55;cursor:default;transform:none}
 .fnote{font-size:.7rem;color:#C4C9D4;text-align:center;margin-top:.55rem}
-.form-success{display:none;text-align:center;padding:1.4rem .5rem}
-.form-success.show{display:block}
-.tick{width:50px;height:50px;border-radius:50%;background:#EFF6FF;color:var(--blue);display:grid;place-items:center;margin:0 auto .8rem}
-.tick svg{width:24px;height:24px}
-.form-success h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
-.form-success p{font-size:.82rem;color:var(--muted)}
 
-/* ─── SECTION BASE ─────────────────────────── */
-.sec{padding:clamp(3.5rem,7vw,6rem) clamp(1.2rem,4vw,3rem)}
-.inner{max-width:1200px;margin-inline:auto}
-.sec-mist{background:var(--mist)}
-.sec-dark{background:var(--dark);color:#fff}
-.sec-blue{background:var(--blue);color:#fff}
-.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.85rem}
-.sec-dark .tag,.sec-blue .tag{color:rgba(255,255,255,.55)}
-.sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:.75rem}
-.sec-body{font-size:1rem;color:var(--muted);line-height:1.8;max-width:58ch}
-.sec-dark .sec-body{color:rgba(255,255,255,.5)}
-.sec-blue .sec-title{color:#fff}
-.sec-blue .sec-body{color:rgba(255,255,255,.8)}
+/* success */
+.success{display:none;text-align:center;padding:1.4rem .5rem}
+.success.show{display:block}
+.tick{width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0153DB;display:grid;place-items:center;margin:0 auto .8rem}
+.tick svg{width:22px;height:22px}
+.success h3{font-size:1rem;font-weight:700;color:#111;margin-bottom:.3rem}
+.success p{font-size:.82rem;color:#9CA3AF}
 
-/* ─── ABOUT ────────────────────────────────── */
-/* ── ABOUT ──────────────────────────────── */
-.about-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
-.about-img-side{position:relative;overflow:hidden;min-height:460px}
-.about-img-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.about-img-side:hover img{transform:scale(1.03)}
-.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(1,83,219,.18),rgba(5,8,13,.45))}
-.about-badge{
-  position:absolute;bottom:2rem;left:2rem;
-  background:#fff;border-radius:12px;padding:1rem 1.2rem;
-  display:flex;align-items:center;gap:.8rem;
-  box-shadow:0 8px 32px rgba(0,0,0,.18);
-  max-width:220px;
-}
-.about-badge-icon{width:40px;height:40px;background:rgba(1,83,219,.1);border-radius:10px;display:grid;place-items:center;flex:none;color:var(--blue)}
-.about-badge-icon svg{width:20px;height:20px}
-.about-badge strong{display:block;font-size:.9rem;font-weight:800;color:#111;line-height:1.2}
-.about-badge span{font-size:.75rem;color:var(--muted)}
-.about-content{
-  padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,4vw,4rem);
-  display:flex;flex-direction:column;justify-content:center;
-  background:#fff;
-}
-.about-content .tag{margin-bottom:.7rem}
-.about-content h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:1.4rem}
-.about-content h2 em{font-style:normal;color:var(--blue)}
-.about-content p{color:#4B5563;line-height:1.82;margin-bottom:1rem;font-size:.98rem}
-.about-content p:first-of-type{font-size:1.06rem;font-weight:500;color:#111}
-.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1.6rem}
-.about-pillar{display:flex;align-items:center;gap:.65rem;padding:.7rem .9rem;background:var(--mist);border-radius:9px;border-left:3px solid var(--blue)}
-.about-pillar svg{width:16px;height:16px;color:var(--blue);flex:none}
-.about-pillar span{font-size:.84rem;font-weight:600;color:#111}
+/* ── RESPONSIVE ── */
 @media(max-width:900px){
-  .about-wrap{grid-template-columns:1fr}
-  .about-img-side{min-height:300px}
-  .about-content{padding:2.5rem 1.5rem}
-  .about-pillars{grid-template-columns:1fr 1fr}
-}
-@media(max-width:480px){.about-pillars{grid-template-columns:1fr}}
-
-/* ─── STATS ────────────────────────────────── */
-.stats-strip{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  background:var(--dark);
-}
-.stat{
-  padding:2.2rem 1.5rem;text-align:center;
-  border-right:1px solid rgba(255,255,255,.07);
-}
-.stat:last-child{border-right:0}
-.stat-num{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;color:#fff;line-height:1;margin-bottom:.4rem}
-.stat-num b{color:var(--blue-lt)}
-.stat-lbl{font-size:.8rem;color:rgba(255,255,255,.4);font-weight:500;line-height:1.4}
-
-/* ─── SERVICES ─────────────────────────────── */
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.svc-card{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:box-shadow .3s,transform .3s}
-.svc-card:hover{box-shadow:0 20px 50px rgba(0,0,0,.1);transform:translateY(-5px)}
-.svc-img{aspect-ratio:3/2;overflow:hidden;position:relative}
-.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.svc-card:hover .svc-img img{transform:scale(1.06)}
-.svc-body{padding:1.3rem}
-.svc-icon{width:38px;height:38px;border-radius:8px;background:rgba(1,83,219,.08);color:var(--blue);display:grid;place-items:center;margin-bottom:.75rem}
-.svc-icon svg{width:19px;height:19px}
-.svc-body h3{font-size:1rem;font-weight:800;margin-bottom:.35rem;letter-spacing:-.01em}
-.svc-body p{font-size:.83rem;color:var(--muted);line-height:1.65}
-
-/* ─── WHY ──────────────────────────────────── */
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
-.why-item{
-  padding:2.2rem 2rem;
-  border-right:1px solid rgba(255,255,255,.07);
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-.why-item:nth-child(even){border-right:0}
-.why-item:nth-child(3),.why-item:nth-child(4){border-bottom:0}
-.why-n{font-size:2.5rem;font-weight:800;color:rgba(91,155,255,.55);display:block;line-height:1;margin-bottom:.9rem}
-.why-item h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.4rem}
-.why-item p{font-size:.88rem;color:rgba(255,255,255,.48);line-height:1.72}
-
-/* ─── GALLERY ──────────────────────────────── */
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto;
-  gap:1rem;
-}
-.gallery-item{border-radius:10px;overflow:hidden;aspect-ratio:4/3;position:relative;cursor:pointer}
-.gallery-item.tall{grid-row:span 2;aspect-ratio:auto}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s;display:block}
-.gallery-item:hover img{transform:scale(1.05);filter:brightness(.85)}
-.gallery-overlay{
-  position:absolute;inset:0;background:rgba(0,0,0,.0);
-  display:flex;align-items:center;justify-content:center;
-  transition:background .3s;
-}
-.gallery-item:hover .gallery-overlay{background:rgba(0,0,0,.3)}
-.gallery-coming{
-  grid-column:1/-1;text-align:center;padding:3.5rem;
-  border:1.5px dashed var(--line);border-radius:12px;background:var(--mist);
-}
-.gallery-coming svg{width:36px;height:36px;color:#C4C9D4;margin:0 auto .9rem}
-.gallery-coming h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
-.gallery-coming p{color:var(--muted);font-size:.92rem}
-
-/* ─── AREAS ────────────────────────────────── */
-.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
-.areas-map{border-radius:14px;overflow:hidden;aspect-ratio:4/3;min-height:380px}
-.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
-.chip{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.4rem 1rem;font-size:.82rem;font-weight:600;transition:all .2s}
-.chip:hover{border-color:var(--blue);color:var(--blue)}
-.chip.hi{background:var(--blue);color:#fff;border-color:var(--blue)}
-
-/* ─── SOCIAL CTA ───────────────────────────── */
-.social-cta{text-align:center;max-width:620px;margin-inline:auto}
-.social-cta h2{color:#fff;margin-bottom:.65rem}
-.social-cta p{color:rgba(255,255,255,.75);margin-bottom:2rem;font-size:1rem;line-height:1.7}
-.social-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
-.sbtn{
-  display:inline-flex;align-items:center;gap:.55rem;
-  font-family:inherit;font-weight:700;font-size:.9rem;
-  padding:.8rem 1.5rem;border-radius:8px;cursor:pointer;transition:opacity .2s,transform .2s;
-}
-.sbtn:hover{opacity:.88;transform:translateY(-2px)}
-.sbtn svg{width:17px;height:17px}
-.sbtn-fb{background:#1877F2;color:#fff}
-.sbtn-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#515bd4);color:#fff}
-.sbtn-wh{background:#fff;color:var(--blue)}
-
-/* ─── CONTACT SECTION ──────────────────────── */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
-.contact-info h2{color:#fff;margin-bottom:.8rem}
-.contact-info p{color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:1.8rem;font-size:1rem}
-.cdetails{display:flex;flex-direction:column;gap:.7rem}
-.citem{
-  display:flex;align-items:center;gap:.85rem;
-  padding:.85rem 1rem;border-radius:9px;
-  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);
-  transition:border-color .2s,background .2s;
-}
-.citem:hover{border-color:rgba(1,83,219,.5);background:rgba(1,83,219,.05)}
-.citem svg{width:18px;height:18px;color:var(--blue-lt);flex:none}
-.citem small{display:block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.1rem}
-.citem b{font-size:.94rem;color:#fff}
-.contact-form-card{background:#fff;border-radius:14px;padding:2rem;box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.contact-form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:.2rem}
-.contact-form-card .cfc-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.4rem}
-
-/* ─── FOOTER ───────────────────────────────── */
-footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
-.foot-main{
-  max-width:1200px;margin-inline:auto;
-  display:grid;grid-template-columns:auto 1fr auto;
-  gap:2rem;align-items:center;
-  padding:2.5rem clamp(1.2rem,4vw,3rem);
-}
-.foot-logo{height:54px;width:auto}
-.foot-mid{text-align:center}
-.foot-tagline{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.foot-loc{font-size:.78rem;color:rgba(255,255,255,.25);margin-top:.3rem}
-.foot-social{display:flex;gap:.55rem;justify-content:flex-end}
-.foot-social a{
-  width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
-  border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);transition:all .2s;
-}
-.foot-social a:hover{background:var(--blue);border-color:var(--blue)}
-.foot-social svg{width:15px;height:15px;color:#fff}
-.foot-bottom{
-  border-top:1px solid rgba(255,255,255,.06);
-  padding:.9rem clamp(1.2rem,4vw,3rem);
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:.5rem;
-  font-size:.72rem;color:rgba(255,255,255,.2);max-width:100%;
-}
-.foot-bottom a{color:rgba(255,255,255,.4);transition:color .2s}
-.foot-bottom a:hover{color:#fff}
-
-/* ─── RESPONSIVE ───────────────────────────── */
-@media(max-width:1024px){
-  .svc-grid{grid-template-columns:repeat(2,1fr)}
-  .stats-strip{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(2){border-right:0}
-  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.07)}
-}
-@media(max-width:900px){
-  .nav-links,.nav-cta{display:none}
-  .burger{display:flex}
-  .hero-inner{grid-template-columns:1fr;gap:2rem;padding:2rem 1.2rem}
-  .hero-feats{max-width:100%}
+  .hero-inner{grid-template-columns:1fr;gap:2.2rem;padding:2rem 1.5rem}
+  .left{max-width:100%}
+  .features{max-width:100%}
   .form-card{max-width:100%;width:100%}
-  .hero h1{font-size:clamp(1.9rem,5vw,2.6rem)}
-  /* about */
-  .about-wrap{grid-template-columns:1fr}
-  .about-img-side{min-height:280px}
-  .about-content{padding:2.5rem 1.5rem}
-  .about-pillars{grid-template-columns:1fr 1fr}
-  /* areas */
-  .areas-grid{grid-template-columns:1fr}
-  .areas-map{aspect-ratio:unset!important;height:320px;min-height:unset!important;width:100%}
-  .areas-map iframe{width:100%!important;height:320px!important}
-  /* contact */
-  .contact-grid{grid-template-columns:1fr}
-  /* gallery */
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-item.tall{grid-row:span 1;aspect-ratio:4/3}
-  /* footer */
-  .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
-  .foot-social{justify-content:center}
-  .foot-bottom{justify-content:center;text-align:center}
-  /* reviews */
-  .rv-header{flex-direction:column;align-items:flex-start;gap:1rem}
-  .rv-controls{align-self:flex-end}
-  /* social cta */
-  .social-cta{padding-inline:0}
+  h1{font-size:clamp(1.8rem,5vw,2.6rem)}
 }
-@media(max-width:600px){
-  :root{--nav-h:72px}
-  .nav-logo{height:52px}
-  /* hero */
-  .hero-feats .feat span{font-size:.74rem}
-  /* stats */
-  .stats-strip{grid-template-columns:repeat(2,1fr)}
-  .stat:nth-child(3){border-right:1px solid rgba(255,255,255,.07)}
-  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,.07)}
-  /* services */
-  .svc-grid{grid-template-columns:1fr}
-  /* why */
-  .why-grid{grid-template-columns:1fr}
-  .why-item{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
-  .why-item:last-child{border-bottom:0!important}
-  /* areas map — tighter on small phones */
-  .areas-map,.areas-map iframe{height:260px!important}
-  /* forms */
+@media(max-width:520px){
   .f2{grid-template-columns:1fr}
-  /* about pillars */
-  .about-pillars{grid-template-columns:1fr}
-  /* social */
-  .social-btns{flex-direction:column;align-items:center}
-  /* reviews */
-  .g-badge{flex-wrap:wrap;gap:.8rem}
-  .g-logo{border-right:0;padding-right:0}
-  /* footer */
-  .foot-bottom{flex-direction:column;gap:.4rem}
-  /* sections padding */
-  .sec{padding-left:1.2rem;padding-right:1.2rem}
-  .inner{padding-inline:0}
+  header{height:72px}
+  header img{height:52px;max-width:240px}
+  .hero{padding-top:72px}
 }
-@media(max-width:380px){
-  .hero h1{font-size:1.7rem}
-  .about-pillars{grid-template-columns:1fr}
-  .chips{gap:.4rem}
-  .chip{font-size:.76rem;padding:.35rem .75rem}
-}
-
-/* ── BEFORE / AFTER ─────────────────────────── */
-.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.ba-card{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.07)}
-.ba-slider-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;user-select:none;touch-action:pan-y;cursor:col-resize}
-.ba-img{position:absolute;inset:0;width:100%;height:100%}
-.ba-img img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
-.ba-img.after{clip-path:inset(0 0 0 50%)}
-.ba-divider{
-  position:absolute;top:0;bottom:0;left:50%;width:3px;
-  background:#fff;box-shadow:0 0 12px rgba(0,0,0,.4);
-  transform:translateX(-50%);pointer-events:none;z-index:3;
-  will-change:left;
-}
-.ba-handle{
-  position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:44px;height:44px;border-radius:50%;
-  background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.32);
-  display:flex;align-items:center;justify-content:center;
-  z-index:4;pointer-events:none;
-  transition:transform .15s,box-shadow .15s;
-  will-change:left;
-}
-.ba-slider-wrap.dragging .ba-handle{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 4px 24px rgba(0,0,0,.38)}
-.ba-handle svg{width:18px;height:18px;color:#374151}
-.ba-pill{
-  position:absolute;top:.65rem;z-index:4;
-  font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:.25rem .6rem;border-radius:999px;pointer-events:none;
-  transition:opacity .2s;
-}
-.ba-pill.before{left:.65rem;background:rgba(0,0,0,.55);color:#fff}
-.ba-pill.after{right:.65rem;background:var(--blue);color:#fff}
-@media(max-width:900px){.ba-grid{grid-template-columns:1fr}}
-@media(max-width:600px){.ba-grid{grid-template-columns:1fr}}
-
-/* ── LIGHTBOX ──────────────────────────────── */
-.lb-overlay{
-  position:fixed;inset:0;z-index:500;
-  background:rgba(5,8,13,.75);
-  backdrop-filter:blur(6px);
-  display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;
-  opacity:0;pointer-events:none;transition:opacity .3s;
-}
-.lb-overlay.open{opacity:1;pointer-events:all}
-.lb-box{
-  background:#fff;border-radius:16px;width:100%;max-width:520px;
-  padding:2.2rem;position:relative;
-  transform:translateY(18px) scale(.97);
-  transition:transform .3s cubic-bezier(.2,.8,.3,1);
-  box-shadow:0 40px 100px rgba(0,0,0,.5);
-  max-height:90vh;overflow-y:auto;
-}
-.lb-overlay.open .lb-box{transform:none}
-.lb-close{
-  position:absolute;top:1rem;right:1rem;
-  width:32px;height:32px;border-radius:50%;
-  background:#F3F4F6;border:0;cursor:pointer;
-  display:grid;place-items:center;transition:background .2s;
-}
-.lb-close:hover{background:#E5E7EB}
-.lb-close svg{width:16px;height:16px;color:#374151}
-.lb-head{margin-bottom:1.5rem}
-.lb-head h3{font-size:1.3rem;font-weight:800;margin-bottom:.2rem}
-.lb-head p{font-size:.85rem;color:var(--muted)}
-.lb-contacts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.4rem}
-.lb-contact{
-  display:flex;align-items:center;gap:.65rem;
-  padding:.75rem .9rem;border-radius:9px;
-  border:1.5px solid var(--line);background:var(--mist);
-  transition:border-color .2s,background .2s;text-decoration:none;
-}
-.lb-contact:hover{border-color:var(--blue);background:#EFF6FF}
-.lb-contact svg{width:18px;height:18px;color:var(--blue);flex:none}
-.lb-contact small{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.lb-contact b{font-size:.82rem;color:#111;font-weight:700}
-.lb-divider{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem;color:var(--muted);font-size:.78rem;font-weight:600}
-.lb-divider::before,.lb-divider::after{content:"";flex:1;height:1px;background:var(--line)}
-
-
-/* ── REVIEWS SLIDER ─────────────────────── */
-.rv-header{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
-.g-badge{display:inline-flex;align-items:center;gap:1.2rem;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.9rem 1.4rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.g-logo{display:flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:700;color:#5f6368;border-right:1px solid var(--line);padding-right:1.2rem}
-.g-rating-num{font-size:2rem;font-weight:800;color:#111;line-height:1}
-.g-stars-row{display:flex;gap:2px;margin:.2rem 0}
-.g-stars-row svg,.rv-stars svg{width:17px;height:17px}
-.g-count{font-size:.78rem;color:#5f6368;font-weight:500}
-.rv-controls{display:flex;align-items:center;gap:.6rem}
-.rv-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;transition:all .2s}
-.rv-btn:hover{border-color:var(--blue);background:var(--blue)}
-.rv-btn:hover svg{stroke:#fff}
-.rv-btn svg{width:16px;height:16px;stroke:#374151;transition:stroke .2s}
-.rv-track-wrap{overflow:hidden}
-.rv-track{display:flex;gap:1rem;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
-.rv-card{
-  flex:0 0 calc((100% - 2rem) / 3);
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  padding:1.3rem;display:flex;flex-direction:column;gap:.8rem;
-}
-.rv-top{display:flex;align-items:center;gap:.7rem}
-.rv-avatar{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#fff;font-family:'Outfit',sans-serif}
-.rv-name{font-size:.88rem;font-weight:700;color:#111}
-.rv-meta{font-size:.7rem;color:#9CA3AF;margin-top:.1rem}
-.rv-mid{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
-.rv-stars{display:flex;gap:1px}
-.rv-date{font-size:.7rem;color:#9CA3AF;white-space:nowrap}
-.rv-text{font-size:.86rem;color:#374151;line-height:1.68;flex:1}
-.rv-more{font-size:.78rem;color:var(--blue);font-weight:600;text-decoration:none}
-.rv-more:hover{text-decoration:underline}
-.rv-dots{display:flex;gap:.4rem;justify-content:center;margin-top:1.2rem}
-.rv-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:0;cursor:pointer;padding:0;transition:background .2s,transform .2s}
-.rv-dot.active{background:var(--blue);transform:scale(1.25)}
-@media(max-width:900px){.rv-card{flex-basis:calc((100% - 1rem) / 2)}}
-@media(max-width:560px){.rv-card{flex-basis:100%}}
 </style>
 </head>
 <body>
 
-<!-- ─── NAV ─────────────────────────────────── -->
-<nav>
-  <div class="nav-inner">
-    <a href="#home">
-      <img class="nav-logo" src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png" alt="MPC Plastering & General Building Ltd"/>
-    </a>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#areas">Areas</a>
-      <button class="nav-cta" id="lbTrigger">Get a Quote</button>
-    </div>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<header>
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAF2A4QDASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAcBBQYICQQCA//EAGoQAAEDAwEFAQkHCg0ODQQDAAEAAgMEBQYRBwgSITFBCRMVIlFVYXHRFBYygZGSkxcYNkJSobGys9MZIzU4RVZicnN0lLTBJCUmKDM0V2N1doKDlaQnN0NERkdTVGWEw9LhhaPw8Waiwv/EABwBAQACAwEBAQAAAAAAAAAAAAAGBwMEBQIBCP/EAEMRAQABAgMADQgJBAEFAQAAAAABAgMEBREGEhMhMUFRUmFxktHSFCJTcoGRobEHFRYyNDVUwfAjorLhFyUzQsLxgv/aAAwDAQACEQMRAD8A5/oiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAidqICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICdqIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiv+HYVlOf5bS4zh9kq7vdKk/pdNTN1Ona5x6NaO1ziAO0oLAi202v7plBsS3T4MtyO5G45hV3alppBTPIpaON7ZC6NnQyOJaNXnly0aB1MFzbP2V+K0NztDyyqkp2PkgkPiyHTmWnsPoPL1LpZdlOJzGLnk1O2miNZjj06OXq9zUxWOs4Wad2nSKp0170fov1qaaoo6l9PVQvhlYdHMeNCF+S59VM0TNNUaTDaiYmNYERF5fRERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARfpBBNU1DIII3ySyODGMYC4ucToAAOZJ8i3o3c9xOsuZpMx21U0tJR+LLT40HFk0w6g1Lhzjb/iweI/bFvQhAewLdjznbpeG1VJGbRi8UnBVXypjJZqOrIW8u+yegENH2xHQ9SNkuxPAti+Iiy4XahFJIAau4T6Pqqxw7ZJPJ5GjRo7As4tdqtlltFNarVb6egoqWMRQU1NGI44mDo1rRyA9AXqc4RtLi8ADylBqr3QJ39qjTDmD74aP8SZaV4613vNtfEdf6lZ+BTzvxbxWz3L8Mj2VYlWG9V1Lc4qysuFK4GlhMTXt701//ACjiX8y3xRp1J5DWnC8qt1daqS0Pl9z1cETYgyQ8pdB1afL6OvrU++j7F2bONuUXatJqjSOmdY3utGNlFi5cw9NVEaxE7/uXm9Y7a77S96roTxtHiTM5PZ6j2j0HkomyLE7jYJS9490UhPi1EY5epw+1Km4jn5V8vijlY5kjGua4aOa4agjyEKwc+2LYTNqZqmNpc50fvHH8+lGctzq9gp011o5O7ka6IpJybZ4x3FWWBvC7q6kJ5H94T+A/F5FHM0MsEzoZ43xyNOjmPGhB8hCpfN8kxeVXdzxF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bfkFdbbPW22nbCYawcMhezV3TTkdeStR580RZ7uJu3aaaLlUzFO9HRHDve1jotUUTNVMaTPD0iIiwMi7TZDXz4tBYJBD7khfxtIb4+upPM6/uirSiLNfxN2/MTdqmdIiI14ojgj2Mdu1Rb1iiNNZ19siA6HVEWFkZbQ7RL/b7bT0NO2j71BGI26xHXQeU6ry3vNbxf7YKGuFOImyCQd7YQdQCPKfKscRde5n2Y3LW4V36po00013tORo05bhaK91ptxtuHXTjNURFyG8yKx5ndrBbXUVDHSljpDITKwk6kAddR5F+tzz7I7pROpZaiOCN40eIGcJcPJrzKxhF1ac8zCmx5NTeqijTTSJ3tORpTl2Fm5us2423DroIiLlN0REQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBE7EQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQf/Z" alt="MPC Plastering & General Building Ltd"/>
+  <div class="coming-soon"><span class="hd"></span>New Website Coming Soon</div>
+</header>
 
-<!-- mobile drawer -->
-<div class="nav-drawer" id="drawer">
-  <a href="#home" onclick="closeNav()">Home</a>
-  <a href="#about" onclick="closeNav()">About</a>
-  <a href="#services" onclick="closeNav()">Services</a>
-  <a href="#gallery" onclick="closeNav()">Gallery</a>
-  <a href="#areas" onclick="closeNav()">Areas</a>
-  <button class="nd-cta" onclick="closeNav();openLb()" style="background:var(--blue);color:#fff;border:0;width:100%;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;border-radius:8px;padding:.9rem;margin-top:.5rem">Get a Free Quote</button>
-</div>
-
-<!-- ─── HERO ─────────────────────────────────── -->
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-inner">
-    <div class="hero-left">
-      <span class="hero-eyebrow">Huddersfield · Yorkshire · Est. 20+ Years</span>
-      <h1>Plastering &amp; Building<br/><em>Done Properly</em></h1>
-      <p class="hero-sub">MPC Plastering &amp; General Building Ltd — quality workmanship and honest service built on over two decades of experience and word-of-mouth reputation.</p>
-      <div class="hero-feats">
+
+    <div class="left">
+      <span class="eyebrow">Huddersfield · Yorkshire</span>
+      <h1>Plastering &amp; Building<br/>Done Properly</h1>
+      <p class="sub">MPC Plastering &amp; General Building Ltd — delivering quality workmanship across Yorkshire for over two decades. Get in touch for a free, no-obligation quote.</p>
+      <div class="features">
         <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <div><strong>Fully Insured</strong><span>£1 million public liability cover</span></div>
+          <div class="feat-text"><strong>Fully Insured</strong><span>£1 million public liability cover</span></div>
         </div>
         <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div><strong>80+ Years' Combined Experience</strong><span>NVQ Level 2 qualified · CSCS certified</span></div>
+          <div class="feat-text"><strong>80+ Years' Combined Experience</strong><span>NVQ Level 2 qualified · CSCS certified</span></div>
         </div>
         <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <div><strong>All Project Sizes</strong><span>Patch repairs to full new builds &amp; re-roofs</span></div>
+          <div class="feat-text"><strong>All Project Sizes</strong><span>Patch repairs to full new builds &amp; re-roofs</span></div>
         </div>
       </div>
     </div>
 
     <div class="form-card">
       <h2>Get a Free Quote</h2>
-      <p class="fc-sub">We'll get back to you as soon as possible.</p>
-      <form id="heroForm" novalidate>
+      <p class="sub2">We'll be in touch as soon as possible.</p>
+      <form id="form" novalidate>
         <div class="f2">
           <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
           <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
@@ -741,791 +171,30 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
         <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
         <div class="field"><label>Message *</label><textarea name="message" required placeholder="Tell us about the job…"></textarea></div>
         <button class="submit" type="submit">Send Enquiry</button>
-        <p class="fnote">Free &amp; no obligation · Huddersfield &amp; all Yorkshire</p>
+        <p class="fnote">Free &amp; no obligation · Huddersfield &amp; all of Yorkshire</p>
       </form>
-      <div class="form-success" id="heroSuccess">
+      <div class="success" id="done">
         <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
         <h3>Thanks — we'll be in touch!</h3>
-        <p>Enquiry received. We'll respond as soon as possible.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── STATS ─────────────────────────────────── -->
-<div class="stats-strip">
-  <div class="stat"><div class="stat-num">20<b>+</b></div><div class="stat-lbl">Years in business</div></div>
-  <div class="stat"><div class="stat-num">80<b>+</b></div><div class="stat-lbl">Years' combined experience</div></div>
-  <div class="stat"><div class="stat-num">£1<b>m</b></div><div class="stat-lbl">Public liability cover</div></div>
-  <div class="stat"><div class="stat-num">NVQ<b> L2</b></div><div class="stat-lbl">Qualified &amp; CSCS certified</div></div>
-</div>
-
-<!-- ─── ABOUT ────────────────────────────────── -->
-<section id="about" style="overflow:hidden">
-  <div class="about-wrap">
-
-    <div class="about-img-side">
-      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format&fit=crop&q=85" alt="Building construction Yorkshire" loading="lazy"/>
-      <div class="about-img-overlay"></div>
-      <div class="about-badge">
-        <div class="about-badge-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <div>
-          <strong>20+ Years<br/>in Business</strong>
-          <span>Est. Huddersfield</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-content">
-      <span class="tag">Our Story</span>
-      <h2>Two Decades of<br/><em>Trusted Workmanship</em></h2>
-      <p>After setting up as a self-employed sole trader over 20 years ago, MPC Plastering &amp; General Building has built a strong reputation for quality workmanship, reliability and professionalism — primarily through word-of-mouth alone.</p>
-      <p>Over the years, we've established a loyal and repeat client base, providing services for fellow trade contractors, landlords, commercial clients and homeowners alike. Thanks to the continued support of our customers and recommendations from satisfied clients, our business has continued to grow year after year.</p>
-      <p>As a result, MPC has expanded into a larger workforce, allowing us to take on a wider range of projects while maintaining the high standards and personal service we've always been known for.</p>
-      <div class="about-pillars">
-        <div class="about-pillar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>NVQ Level 2 Qualified</span>
-        </div>
-        <div class="about-pillar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>£1m Public Liability</span>
-        </div>
-        <div class="about-pillar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>CSCS Certified</span>
-        </div>
-        <div class="about-pillar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>80+ Years Combined Exp.</span>
-        </div>
+        <p>Enquiry received. We'll get back to you shortly.</p>
       </div>
     </div>
 
   </div>
 </section>
-
-<!-- ─── SERVICES ──────────────────────────────── -->
-<section class="sec sec-mist" id="services">
-  <div class="inner">
-    <span class="tag">What We Do</span>
-    <h2 class="sec-title">Our Services</h2>
-    <p class="sec-body" style="margin-bottom:2.5rem">From a small patch repair to a full new build — one trusted team handles it all, saving you the hassle of dealing with multiple tradesmen.</p>
-    <div class="svc-grid">
-      <a class="svc-card" href="plastering.html" style="display:block;text-decoration:none;color:inherit">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45249ff38?w=600&auto=format&fit=crop&q=80" alt="Plastering Huddersfield" loading="lazy"/></div>
-        <div class="svc-body">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-5h6v5"/></svg></div>
-          <h3>Plastering</h3>
-          <p>All aspects of plastering including heritage &amp; lime mortars, pebble dashing and rendering — finished to the highest standard.</p>
-          <div style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-size:.82rem;font-weight:700;color:var(--blue)">View service <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
-        </div>
-      </a>
-      <div class="svc-card">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&auto=format&fit=crop&q=80" alt="General building Huddersfield" loading="lazy"/></div>
-        <div class="svc-body">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-          <h3>General Building</h3>
-          <p>Extensions, new builds, flagging and pointing — quality building work handled professionally from start to finish.</p>
-        </div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&auto=format&fit=crop&q=80" alt="Roofing Huddersfield Yorkshire" loading="lazy"/></div>
-        <div class="svc-body">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 3l9 9"/><path d="M5 10v9h14v-9"/></svg></div>
-          <h3>Roofing</h3>
-          <p>Roofing repairs and full re-roofs — keeping your property weather-tight, secure and looking its best.</p>
-        </div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&auto=format&fit=crop&q=80" alt="Project management Yorkshire" loading="lazy"/></div>
-        <div class="svc-body">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
-          <h3>Project Management</h3>
-          <p>Full project management from initial consultation to completion — one point of contact throughout.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── WHY CHOOSE US ─────────────────────────── -->
-<section class="sec sec-dark">
-  <div class="inner">
-    <span class="tag">Why MPC</span>
-    <h2 class="sec-title" style="color:#fff;margin-bottom:2.5rem">Built on Quality.<br/>Finished with Pride.</h2>
-    <div class="why-grid">
-      <div class="why-item">
-        <span class="why-n">01</span>
-        <h3>Word-of-Mouth Reputation</h3>
-        <p>Over 20 years in business built almost entirely on recommendations. Our work speaks for itself — and so do our customers.</p>
-      </div>
-      <div class="why-item">
-        <span class="why-n">02</span>
-        <h3>One Team, Every Trade</h3>
-        <p>Plastering, roofing, building and project management under one roof — no juggling multiple contractors or wasted time.</p>
-      </div>
-      <div class="why-item">
-        <span class="why-n">03</span>
-        <h3>Tidy, Respectful Tradesmen</h3>
-        <p>We treat every property with care — dust protection, tidy workmanship and a full clean-up at the end of every job.</p>
-      </div>
-      <div class="why-item">
-        <span class="why-n">04</span>
-        <h3>We Actually Respond</h3>
-        <p>We know how frustrating it is when tradesmen go quiet. We aim to respond to every enquiry promptly and honestly.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ─── REVIEWS ──────────────────────────── -->
-<section class="sec sec-mist" id="reviews">
-  <div class="inner">
-    <div class="rv-header">
-      <div class="g-badge">
-        <div class="g-logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg>
-          Google Reviews
-        </div>
-        <div>
-          <div class="g-rating-num">5.0</div>
-          <div class="g-stars-row"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-          <div class="g-count">14 reviews</div>
-        </div>
-      </div>
-      <div class="rv-controls">
-        <button class="rv-btn" id="rvPrev" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button class="rv-btn" id="rvNext" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="rv-track-wrap">
-      <div class="rv-track" id="rvTrack">
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#4285F4">RS</div>
-            <div><div class="rv-name">Robert Sykes</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">1 hour ago</span>
-          </div>
-          <p class="rv-text">We used MPC service great Communication from Nic arrived on time both for the Quotation and on the actual job, was very happy with the service workmen ship and will definitely recommend and use again.</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#EA4335">TP</div>
-            <div><div class="rv-name">Tom Portman</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">3 hours ago</span>
-          </div>
-          <p class="rv-text">Excellent Team, Quality of Work, Value for Money and Always On Time What do you look for when you need any kind of work to done? What I look for is … <a class="rv-more" href="https://www.google.com/maps/contrib/117904437600761248983/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#34A853">SK</div>
-            <div><div class="rv-name">Sara K</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">13 hours ago</span>
-          </div>
-          <p class="rv-text">I can’t recommend Nick and his team highly enough. From the outset, they were professional, reliable, and transparent. They arrived exactly when they said they would, worked incredibly hard throughout the day, and completed the job on … <a class="rv-more" href="https://www.google.com/maps/contrib/115724028917660808339/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#FBBC05">LM</div>
-            <div><div class="rv-name">Lucas Murgatroyd</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">14 hours ago</span>
-          </div>
-          <p class="rv-text">Top quality work and always a friendly reliable service. Couldn’t recommend enough!</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#9C27B0">JW</div>
-            <div><div class="rv-name">Julia Wood</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">14 hours ago</span>
-          </div>
-          <p class="rv-text">I am so impressed with the attic gable end wall it’s perfect and the fact there was nothing to clean up just a quick wet dust round. I can’t thank you enough for the workmanship and respect of mums home leaving it so clean. Thanks Julia</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#FF5722">JT</div>
-            <div><div class="rv-name">Jordan Tindle</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">14 hours ago</span>
-          </div>
-          <p class="rv-text">have used nick and his plastering team on all my jobs over the last ten years! excellent finish on all there work would highly reccomend</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#00BCD4">MH</div>
-            <div><div class="rv-name">Michael Harris</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">14 hours ago</span>
-          </div>
-          <p class="rv-text">I have used Nick and his team several times and they have always been 1st class.</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#4285F4">RC</div>
-            <div><div class="rv-name">Robert Copley</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">14 hours ago</span>
-          </div>
-          <p class="rv-text">A Top class company!! Nick and his team always deliver great work, they are adaptable,flexible and ready to help with any issues on site to help other trades, and always as team players, I would highly reccomend these guys..they have … <a class="rv-more" href="https://www.google.com/maps/contrib/115425779696624427592/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#34A853">JH</div>
-            <div><div class="rv-name">James Haigh</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">14 hours ago</span>
-          </div>
-          <p class="rv-text">Quality plaster work second to none! Never seen plaster so smooth</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#EA4335">MM</div>
-            <div><div class="rv-name">michael mallinson</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">15 hours ago</span>
-          </div>
-          <p class="rv-text">Have use Nick for a Number of years for jobs around my house and for other other jobs I would recommend to anybody very reasonably priced And very clean and tidy worker</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#FF9800">LS</div>
-            <div><div class="rv-name">Luke Sullivan</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">15 hours ago</span>
-          </div>
-          <p class="rv-text">Had MPC in to board and plaster our living room. Nick and team worked to a very high Standard and couldn’t fault a thing. Very clean and left no mess. Would recommend 👍🏻</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#9C27B0">JH</div>
-            <div><div class="rv-name">James Hartley</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">15 hours ago</span>
-          </div>
-          <p class="rv-text">Nick and his team are fantastic, from start to finish nothing but professional.</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#00BCD4">AG</div>
-            <div><div class="rv-name">Anthony Gray</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">a month ago</span>
-          </div>
-          <p class="rv-text">Good team of workers, swift work, great prices for the quality of the work, honest communication! The only team of builders I’ve found to be direct and honest about what’s needed, costs, lengths of time and any potential changes the work may throw up.</p>
-        </div>
-        <div class="rv-card">
-          <div class="rv-top">
-            <div class="rv-avatar" style="background:#4285F4">BS</div>
-            <div><div class="rv-name">Ben Sullivan</div><div class="rv-meta">Google Review</div></div>
-            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
-          </div>
-          <div class="rv-mid">
-            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-            <span class="rv-date">a month ago</span>
-          </div>
-          <p class="rv-text">Organised,efficient and quality. Great experience from start to finish .</p>
-        </div>
-      </div>
-    </div>
-    <div class="rv-dots" id="rvDots"></div>
-  </div>
-</section>
-
-<!-- ─── GALLERY ───────────────────────────────── -->
-<section class="sec" id="gallery">
-  <div class="inner">
-    <span class="tag">Our Work</span>
-    <h2 class="sec-title">Project Gallery</h2>
-    <p class="sec-body" style="margin-bottom:2.5rem">Real project photos coming soon — follow us on social media to see our latest work in the meantime.</p>
-    <div class="gallery-grid">
-      <div class="gallery-item tall">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=80" alt="Plastering work" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1621905251189-08b45249ff38?w=600&auto=format&fit=crop&q=80" alt="Plastering" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Building work" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&auto=format&fit=crop&q=80" alt="Construction" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&auto=format&fit=crop&q=80" alt="Roofing Huddersfield Yorkshire" loading="lazy"/>
-        <div class="gallery-overlay"></div>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:1.5rem;font-size:.85rem;color:var(--muted)">Stock photos shown — real project photography coming soon</p>
-  </div>
-</section>
-
-<!-- ─── BEFORE & AFTER ───────────────────────── -->
-<section class="sec" id="transformations">
-  <div class="inner">
-    <span class="tag">Real Results</span>
-    <h2 class="sec-title">Before &amp; After</h2>
-    <p class="sec-body" style="margin-bottom:2.5rem">Drag the slider left or right to reveal the transformation. Real project photos from jobs we've completed across Yorkshire.</p>
-    <div class="ba-grid">
-
-      <!-- Project 1 -->
-      <div class="ba-card">
-        <div class="ba-slider-wrap" data-ba>
-          <div class="ba-img before">
-            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20.jpeg" alt="Before plastering project 1" loading="lazy"/>
-          </div>
-          <div class="ba-img after">
-            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20%20(1).jpeg" alt="After plastering project 1" loading="lazy"/>
-          </div>
-          <div class="ba-divider"></div>
-          <div class="ba-handle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
-          </div>
-          <span class="ba-pill before">Before</span>
-          <span class="ba-pill after">After</span>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="ba-card">
-        <div class="ba-slider-wrap" data-ba>
-          <div class="ba-img before">
-            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.30.jpeg" alt="Before plastering project 2" loading="lazy"/>
-          </div>
-          <div class="ba-img after">
-            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.29.jpeg" alt="After plastering project 2" loading="lazy"/>
-          </div>
-          <div class="ba-divider"></div>
-          <div class="ba-handle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
-          </div>
-          <span class="ba-pill before">Before</span>
-          <span class="ba-pill after">After</span>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="ba-card">
-        <div class="ba-slider-wrap" data-ba>
-          <div class="ba-img before">
-            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.43.19%20(1).jpeg" alt="Before plastering project 3" loading="lazy"/>
-          </div>
-          <div class="ba-img after">
-            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.43.19.jpeg" alt="After plastering project 3" loading="lazy"/>
-          </div>
-          <div class="ba-divider"></div>
-          <div class="ba-handle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
-          </div>
-          <span class="ba-pill before">Before</span>
-          <span class="ba-pill after">After</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── AREAS ─────────────────────────────────── -->
-<section class="sec sec-mist" id="areas">
-  <div class="inner">
-    <div class="areas-grid">
-      <div>
-        <span class="tag">Where We Work</span>
-        <h2 class="sec-title">Serving Yorkshire &amp; Beyond</h2>
-        <p class="sec-body">Based in Huddersfield, we serve homeowners, landlords, commercial clients and contractors right across Yorkshire and Lancashire. We're also happy to travel nationally for the right project.</p>
-        <div class="chips">
-          <span class="chip hi">Huddersfield</span>
-          <span class="chip">Halifax</span>
-          <span class="chip">Bradford</span>
-          <span class="chip">Leeds</span>
-          <span class="chip">Wakefield</span>
-          <span class="chip">Dewsbury</span>
-          <span class="chip">Barnsley</span>
-          <span class="chip">Sheffield</span>
-          <span class="chip">All Yorkshire</span>
-          <span class="chip">Lancashire</span>
-          <span class="chip">Nationwide on request</span>
-        </div>
-      </div>
-      <div class="areas-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1162169.930599172!2d-2.526405831077085!3d53.92463486110496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487935b588f279e9%3A0xcba0fa0330518560!2sYorkshire!5e1!3m2!1sen!2suk!4v1780609726737!5m2!1sen!2suk" style="border:0;width:100%;height:100%;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SOCIAL CTA ────────────────────────────── -->
-<section class="sec sec-blue">
-  <div class="inner">
-    <div class="social-cta">
-      <span class="tag">Follow Our Journey</span>
-      <h2 class="sec-title">See Our Latest Work</h2>
-      <p>We've recently launched our social media presence to showcase projects and share updates. Follow us on Facebook and Instagram to see what we've been working on.</p>
-      <div class="social-btns">
-        <a class="sbtn sbtn-fb" href="https://www.facebook.com/profile.php?id=61590256274433" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
-          Facebook
-        </a>
-        <a class="sbtn sbtn-ig" href="https://www.instagram.com/mpcplasteringandbuildingltd/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          Instagram
-        </a>
-        <a class="sbtn sbtn-wh" href="#contact">Get a Free Quote →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONTACT ───────────────────────────────── -->
-<section class="sec sec-dark" id="contact">
-  <div class="inner">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <span class="tag">Get In Touch</span>
-        <h2 class="sec-title" style="color:#fff">Request a Free Quote</h2>
-        <p>Tell us about your project and we'll get back to you promptly with a free, no-obligation quote. No hard sell — just honest advice.</p>
-        <div class="cdetails">
-          <a class="citem" href="tel:+447588026732">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 11.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <div><small>Phone</small><b>07588 026 732</b></div>
-          </a>
-          <a class="citem" href="mailto:mpcplasteringbuilding@yahoo.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-            <div><small>Email</small><b>mpcplasteringbuilding@yahoo.com</b></div>
-          </a>
-          <a class="citem" href="https://www.facebook.com/profile.php?id=61590256274433" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
-            <div><small>Facebook</small><b>MPC Plastering &amp; General Building</b></div>
-          </a>
-          <a class="citem" href="https://www.instagram.com/mpcplasteringandbuildingltd/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            <div><small>Instagram</small><b>@mpcplasteringandbuildingltd</b></div>
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-form-card">
-        <h3>Send an Enquiry</h3>
-        <p class="cfc-sub">Fields marked * are required.</p>
-        <form id="contactForm" novalidate>
-          <div class="f2">
-            <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
-            <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
-          </div>
-          <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
-          <div class="field">
-            <label>Service required</label>
-            <select name="service">
-              <option value="">Please select…</option>
-              <option>Plastering / rendering</option>
-              <option>Roofing repairs / re-roof</option>
-              <option>General building</option>
-              <option>New build</option>
-              <option>Extension</option>
-              <option>Flagging / pointing</option>
-              <option>Project management</option>
-              <option>Other / not sure</option>
-            </select>
-          </div>
-          <div class="field"><label>Message *</label><textarea name="message" required style="height:96px" placeholder="Tell us about the job, including location if you can…"></textarea></div>
-          <button class="submit" type="submit">Send Enquiry</button>
-          <p class="fnote">Free &amp; no obligation · We aim to respond the same day</p>
-        </form>
-        <div class="form-success" id="contactSuccess">
-          <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-          <h3>Thanks — we'll be in touch!</h3>
-          <p>Enquiry received. We'll get back to you as soon as possible.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ───────────────────────────────── -->
-<footer>
-  <div class="foot-main">
-    <img class="foot-logo" src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png" alt="MPC Plastering & General Building Ltd"/>
-    <div class="foot-mid">
-      <div class="foot-tagline">Built on Quality. Finished with Pride.</div>
-      <div class="foot-loc">MPC Plastering &amp; General Building Ltd · Huddersfield, Yorkshire</div>
-    </div>
-    <div class="foot-social">
-      <a href="https://www.facebook.com/profile.php?id=61590256274433" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/mpcplasteringandbuildingltd/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <span>&copy; <span id="yr"></span> MPC Plastering &amp; General Building Ltd. All rights reserved.</span>
-    <span>Website designed by <a href="https://www.franks-media.co.uk" target="_blank" rel="noopener">Franks Media</a></span>
-  </div>
-</footer>
 
 <script>
-/* ── year ── */
-document.getElementById('yr').textContent = new Date().getFullYear();
-
-/* ── burger ── */
-const burger = document.getElementById('burger');
-const drawer = document.getElementById('drawer');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  drawer.classList.toggle('open');
+document.getElementById('form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  if(!this.checkValidity()){this.reportValidity();return;}
+  const btn=this.querySelector('.submit');
+  btn.textContent='Sending…';btn.disabled=true;
+  try{
+    const r=await fetch('https://formspree.io/f/xkoandby',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});
+    if(r.ok){this.style.display='none';document.getElementById('done').classList.add('show');}
+    else throw 0;
+  }catch(_){btn.textContent='Send Enquiry';btn.disabled=false;alert('Something went wrong — please try again.');}
 });
-function closeNav(){
-  burger.classList.remove('open');
-  drawer.classList.remove('open');
-}
-
-/* ── active nav on scroll ── */
-const sections = document.querySelectorAll('section[id]');
-const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
-  navAs.forEach(a => {
-    a.classList.remove('active');
-    if(a.getAttribute('href') === '#'+cur) a.classList.add('active');
-  });
-}, {passive:true});
-
-/* ── form handler ── */
-async function handleForm(formId, successId){
-  const form = document.getElementById(formId);
-  if(!form) return;
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    if(!this.checkValidity()){this.reportValidity();return;}
-    const btn = this.querySelector('.submit');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-    try{
-      const r = await fetch('https://formspree.io/f/xkoandby', {
-        method:'POST', headers:{'Accept':'application/json'}, body:new FormData(this)
-      });
-      if(r.ok){
-        this.style.display = 'none';
-        document.getElementById(successId).classList.add('show');
-      } else throw 0;
-    } catch(_){
-      btn.textContent = 'Send Enquiry'; btn.disabled = false;
-      alert('Something went wrong — please try again.');
-    }
-  });
-}
-handleForm('heroForm','heroSuccess');
-handleForm('contactForm','contactSuccess');
-
-/* ── lightbox ── */
-function openLb(){ document.getElementById('lbOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeLb(){ document.getElementById('lbOverlay').classList.remove('open'); document.body.style.overflow=''; }
-document.addEventListener('DOMContentLoaded', function(){
-  var t=document.getElementById('lbTrigger');
-  var c=document.getElementById('lbClose');
-  var o=document.getElementById('lbOverlay');
-  if(t) t.addEventListener('click', openLb);
-  if(c) c.addEventListener('click', closeLb);
-  if(o) o.addEventListener('click', function(e){ if(e.target===this) closeLb(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
-  handleForm('lbForm','lbSuccess');
-});
-
-/* ── reviews slider ── */
-(function(){
-  var track = document.getElementById('rvTrack');
-  var dotsEl = document.getElementById('rvDots');
-  if(!track) return;
-  var cards = track.querySelectorAll('.rv-card');
-  var total = cards.length;
-  var cur = 0;
-
-  function perView(){
-    if(window.innerWidth <= 560) return 1;
-    if(window.innerWidth <= 900) return 2;
-    return 3;
-  }
-
-  function pages(){ return Math.ceil(total / perView()); }
-
-  function buildDots(){
-    dotsEl.innerHTML = '';
-    for(var i=0;i<pages();i++){
-      var d=document.createElement('button');
-      d.className='rv-dot'+(i===0?' active':'');
-      d.setAttribute('aria-label','Page '+(i+1));
-      d.dataset.i = i;
-      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
-      dotsEl.appendChild(d);
-    }
-  }
-
-  function goTo(page){
-    var p = pages();
-    cur = Math.max(0, Math.min(page, p-1));
-    var pv = perView();
-    var cardW = cards[0].getBoundingClientRect().width;
-    var gap = 16;
-    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
-    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
-  }
-
-  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
-  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
-
-  buildDots();
-  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
-  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
-
-  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
-})();
-
-/* ── before / after sliders ── */
-(function(){
-  document.querySelectorAll('[data-ba]').forEach(function(wrap){
-    var afterImg = wrap.querySelector('.ba-img.after');
-    var divider  = wrap.querySelector('.ba-divider');
-    var handle   = wrap.querySelector('.ba-handle');
-    var dragging = false;
-    var rafId    = null;
-    var pendingX = null;
-
-    function applyPos(x){
-      var rect = wrap.getBoundingClientRect();
-      var pct  = Math.min(100, Math.max(0, ((x - rect.left) / rect.width) * 100));
-      afterImg.style.clipPath = 'inset(0 0 0 ' + pct.toFixed(3) + '%)';
-      divider.style.left      = pct + '%';
-      handle.style.left       = pct + '%';
-    }
-
-    function scheduleUpdate(x){
-      pendingX = x;
-      if(rafId) return;
-      rafId = requestAnimationFrame(function(){
-        rafId = null;
-        if(pendingX !== null){ applyPos(pendingX); pendingX = null; }
-      });
-    }
-
-    /* pointer events — unified mouse + touch */
-    wrap.addEventListener('pointerdown', function(e){
-      e.preventDefault();
-      wrap.setPointerCapture(e.pointerId);
-      dragging = true;
-      wrap.classList.add('dragging');
-      scheduleUpdate(e.clientX);
-    });
-
-    wrap.addEventListener('pointermove', function(e){
-      if(!dragging) return;
-      scheduleUpdate(e.clientX);
-    });
-
-    function endDrag(){
-      dragging = false;
-      wrap.classList.remove('dragging');
-    }
-    wrap.addEventListener('pointerup',     endDrag);
-    wrap.addEventListener('pointercancel', endDrag);
-  });
-})();
-
 </script>
-<div class="lb-overlay" id="lbOverlay">
-  <div class="lb-box" id="lbBox">
-    <button class="lb-close" id="lbClose" aria-label="Close">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-    </button>
-    <div class="lb-head">
-      <h3>Get a Free Quote</h3>
-    </div>
-
-    <form id="lbForm" novalidate>
-      <div class="f2">
-        <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
-        <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
-      </div>
-      <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
-      <div class="field">
-        <label>Service</label>
-        <select name="service">
-          <option value="">Please select…</option>
-          <option>Plastering / rendering</option>
-          <option>Roofing repairs / re-roof</option>
-          <option>General building</option>
-          <option>New build</option>
-          <option>Extension</option>
-          <option>Flagging / pointing</option>
-          <option>Project management</option>
-          <option>Other / not sure</option>
-        </select>
-      </div>
-      <div class="field"><label>Message *</label><textarea name="message" required style="height:80px" placeholder="Tell us about the job…"></textarea></div>
-      <button class="submit" type="submit">Send Enquiry</button>
-      <p class="fnote">Free &amp; no obligation</p>
-    </form>
-    <div class="form-success" id="lbSuccess">
-      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h3>Thanks — we'll be in touch!</h3>
-      <p>Enquiry received. We'll get back to you as soon as possible.</p>
-    </div>
-  </div>
-</div>
 </body>
 </html>

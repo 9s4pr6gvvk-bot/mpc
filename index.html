@@ -3,188 +3,737 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>MPC Plastering & General Building Ltd — Huddersfield</title>
+<title>Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd</title>
+<meta name="description" content="MPC Plastering & General Building Ltd — expert plastering, rendering, roofing, extensions & general building across Yorkshire. 20+ years experience, NVQ qualified, £1m insured. Free quotes."/>
+<meta name="keywords" content="plasterer Huddersfield, builder Huddersfield, plastering Yorkshire, rendering Huddersfield, roofing Huddersfield, general builder Yorkshire, plastering and building Huddersfield, MPC plastering"/>
+<link rel="canonical" href="https://www.mpcplastering-building.co.uk/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd"/>
+<meta property="og:description" content="Expert plastering, rendering, roofing and general building across Yorkshire. 20+ years experience, NVQ qualified, £1m insured. Free no-obligation quotes."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1200&auto=format&fit=crop"/>
+<meta property="og:url" content="https://www.mpcplastering-building.co.uk/"/>
+<meta property="og:site_name" content="MPC Plastering & General Building Ltd"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd"/>
+<meta name="twitter:description" content="Expert plastering, rendering, roofing and building across Yorkshire. Free quotes. NVQ qualified. £1m insured."/>
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1200&auto=format&fit=crop"/>
+<meta name="geo.region" content="GB-KIR"/>
+<meta name="geo.placename" content="Huddersfield, West Yorkshire"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.mpcplastering-building.co.uk/#business",
+      "name": "MPC Plastering & General Building Ltd",
+      "description": "Professional plastering and general building services across Yorkshire. Over 20 years experience. NVQ qualified, CSCS certified, £1m insured.",
+      "url": "https://www.mpcplastering-building.co.uk",
+      "telephone": "+447588026732",
+      "email": "mpcplasteringbuilding@yahoo.com",
+      "foundingDate": "2004",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Huddersfield",
+        "addressRegion": "West Yorkshire",
+        "addressCountry": "GB"
+      },
+      "geo": {"@type":"GeoCoordinates","latitude":53.6458,"longitude":-1.7850},
+      "areaServed": ["Huddersfield","Halifax","Bradford","Leeds","Wakefield","Dewsbury","Barnsley","Sheffield","Yorkshire","Lanarkshire"],
+      "priceRange": "££",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "14",
+        "bestRating": "5"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61590256274433",
+        "https://www.instagram.com/mpcplasteringandbuildingltd/"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Building & Plastering Services",
+        "itemListElement": [
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Plastering & Rendering","areaServed":"Yorkshire"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Roofing","areaServed":"Yorkshire"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"General Building","areaServed":"Yorkshire"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Project Management","areaServed":"Yorkshire"}}
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.mpcplastering-building.co.uk/#website",
+      "url": "https://www.mpcplastering-building.co.uk",
+      "name": "MPC Plastering & General Building Ltd",
+      "publisher": {"@id":"https://www.mpcplastering-building.co.uk/#business"}
+    }
+  ]
+}
+
+/* ── reviews slider ── */
+(function(){
+  var track = document.getElementById('rvTrack');
+  var dotsEl = document.getElementById('rvDots');
+  if(!track) return;
+  var cards = track.querySelectorAll('.rv-card');
+  var total = cards.length;
+  var cur = 0;
+
+  function perView(){
+    if(window.innerWidth <= 560) return 1;
+    if(window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  function pages(){ return Math.ceil(total / perView()); }
+
+  function buildDots(){
+    dotsEl.innerHTML = '';
+    for(var i=0;i<pages();i++){
+      var d=document.createElement('button');
+      d.className='rv-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Page '+(i+1));
+      d.dataset.i = i;
+      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(page){
+    var p = pages();
+    cur = Math.max(0, Math.min(page, p-1));
+    var pv = perView();
+    var cardW = cards[0].getBoundingClientRect().width;
+    var gap = 16;
+    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
+    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+  }
+
+  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
+  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
+
+  buildDots();
+  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
+  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
+
+  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
+})();
+</script>
+<link rel="icon" href="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
+/* ─── RESET & BASE ─────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:#111}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;background:#fff;color:#111;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
 
-/* ── HEADER ─────────────────────────────────── */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
+/* ─── VARIABLES ────────────────────────────── */
+:root{
+  --blue:#0153DB;
+  --blue-lt:#1461F0;
+  --dark:#0C0F14;
+  --mist:#F5F7FA;
+  --muted:#6B7280;
+  --line:#E5E7EB;
+  --nav-h:88px;
+}
+
+/* ─── NAV ──────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
   background:#000;
   border-bottom:1px solid rgba(255,255,255,.08);
-  height:96px;display:flex;align-items:center;
-  padding:0 clamp(1.5rem,5vw,4rem);
-  justify-content:space-between;gap:1rem;
+  height:var(--nav-h);
 }
-header img{height:72px;width:auto;max-width:320px;object-fit:contain}
-.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem}
-.coming-soon{
-  font-size:.75rem;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:rgba(255,255,255,.5);
-  display:flex;align-items:center;gap:.5rem;white-space:nowrap;
+.nav-inner{
+  max-width:1300px;margin-inline:auto;height:100%;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1.2rem,4vw,3rem);gap:1rem;
 }
-.hd{width:6px;height:6px;border-radius:50%;background:#0153DB;flex:none;animation:blink 2.4s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.contact-links{display:flex;gap:1.2rem;align-items:center}
-.contact-links a{
-  color:rgba(255,255,255,.75);font-size:.82rem;font-weight:600;
-  text-decoration:none;display:flex;align-items:center;gap:.4rem;
-  transition:color .2s;white-space:nowrap;
+.nav-logo{height:68px;width:auto;display:block}
+.nav-links{
+  display:flex;align-items:center;gap:clamp(.8rem,2vw,2rem);
 }
-.contact-links a:hover{color:#fff}
-.contact-links svg{width:14px;height:14px;flex:none;color:#0153DB}
-
-/* ── HERO ───────────────────────────────────── */
-.hero{
-  min-height:100vh;padding-top:96px;
-  display:flex;align-items:center;
-  background:url('https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1440&auto=format&fit=crop') center/cover no-repeat;
+.nav-links a{
+  font-size:.88rem;font-weight:600;color:rgba(255,255,255,.65);
+  letter-spacing:.02em;transition:color .2s;padding:.3rem 0;
   position:relative;
+}
+.nav-links a::after{
+  content:"";position:absolute;bottom:-2px;left:0;right:0;height:2px;
+  background:var(--blue);transform:scaleX(0);transition:transform .25s;
+}
+.nav-links a:hover,
+.nav-links a.active{color:#fff}
+.nav-links a:hover::after,
+.nav-links a.active::after{transform:scaleX(1)}
+.nav-cta{
+  background:var(--blue);color:#fff;
+  font-size:.85rem;font-weight:700;
+  padding:.65rem 1.4rem;border-radius:7px;
+  transition:background .2s,box-shadow .2s,transform .2s;
+  white-space:nowrap;
+  box-shadow:0 4px 14px -4px rgba(1,83,219,.7);
+  display:inline-flex;align-items:center;gap:.45rem;
+}
+.nav-cta:hover{background:var(--blue-lt);box-shadow:0 8px 20px -6px rgba(1,83,219,.85);transform:translateY(-1px)}
+.nav-cta::after{display:none!important}
+.nav-cta svg{width:14px;height:14px}
+
+/* hamburger */
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:.4rem;
+}
+.burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* mobile nav drawer */
+.nav-drawer{
+  display:none;position:fixed;top:var(--nav-h);left:0;right:0;
+  background:#000;border-bottom:1px solid rgba(255,255,255,.08);
+  padding:1.2rem 1.5rem 1.5rem;z-index:199;
+  flex-direction:column;gap:.2rem;
+}
+.nav-drawer.open{display:flex}
+.nav-drawer a{
+  color:rgba(255,255,255,.7);font-size:1rem;font-weight:600;
+  padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.06);
+  transition:color .2s;
+}
+.nav-drawer a:last-child{border-bottom:0;margin-top:.5rem}
+.nav-drawer a:hover{color:#fff}
+.nav-drawer .nd-cta{
+  background:var(--blue);color:#fff;text-align:center;
+  border-radius:8px;padding:.9rem;border-bottom:0;margin-top:.5rem;
+}
+
+/* ─── HERO ─────────────────────────────────── */
+.hero{
+  min-height:100vh;padding-top:var(--nav-h);
+  display:flex;align-items:center;position:relative;
+  background:url('https://images.unsplash.com/photo-1718816281207-3b253cff549a?q=80&w=1440&auto=format&fit=crop') center/cover no-repeat;
 }
 .hero::before{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(5,8,13,.88) 0%,rgba(5,8,13,.72) 55%,rgba(5,8,13,.60) 100%);
+  background:linear-gradient(105deg,rgba(5,8,13,.9) 0%,rgba(5,8,13,.75) 55%,rgba(5,8,13,.55) 100%);
 }
 .hero-inner{
   position:relative;z-index:2;width:100%;
   max-width:1300px;margin-inline:auto;
   display:grid;grid-template-columns:1fr 360px;
-  gap:clamp(2rem,4vw,5rem);align-items:center;
-  padding:clamp(2.5rem,5vw,4.5rem) clamp(1.5rem,5vw,4rem);
+  gap:clamp(2rem,5vw,5rem);align-items:center;
+  padding:clamp(2.5rem,5vw,4rem) clamp(1.2rem,4vw,3rem);
 }
-
-/* ── LEFT ─ */
-.left{color:#fff;max-width:560px}
-.eyebrow{
-  font-size:.72rem;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(255,255,255,.45);
-  margin-bottom:1.1rem;display:block;
+.hero-left{color:#fff}
+.hero-eyebrow{
+  display:block;font-size:.72rem;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:1rem;
 }
-h1{
-  font-size:clamp(1.9rem,3.8vw,3rem);font-weight:800;
-  line-height:1.1;letter-spacing:-.025em;margin-bottom:.85rem;
+.hero h1{
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:800;
+  line-height:1.08;letter-spacing:-.025em;margin-bottom:.85rem;color:#fff;
 }
-.sub{
-  font-size:clamp(.88rem,1.2vw,1rem);color:rgba(255,255,255,.52);
-  line-height:1.7;max-width:44ch;margin-bottom:2.4rem;
+.hero h1 em{font-style:normal;color:var(--blue-lt)}
+.hero-sub{
+  font-size:clamp(.9rem,1.3vw,1.05rem);color:rgba(255,255,255,.55);
+  line-height:1.72;max-width:44ch;margin-bottom:2.2rem;
 }
-.features{display:flex;flex-direction:column;gap:.6rem;max-width:460px}
+.hero-feats{display:flex;flex-direction:column;gap:.6rem;max-width:460px}
 .feat{
-  display:flex;align-items:center;gap:.85rem;
-  padding:.75rem 1rem;
-  border-left:2px solid #0153DB;
-  background:rgba(255,255,255,.04);
-  border-radius:0 8px 8px 0;
+  display:flex;align-items:center;gap:.85rem;padding:.75rem 1rem;
+  border-left:2px solid var(--blue);background:rgba(255,255,255,.04);border-radius:0 8px 8px 0;
 }
 .feat svg{width:17px;height:17px;color:#5b9bff;flex:none}
-.feat-text strong{font-size:.92rem;font-weight:700;color:#fff;display:block}
-.feat-text span{font-size:.78rem;color:rgba(255,255,255,.42)}
+.feat strong{font-size:.92rem;font-weight:700;color:#fff;display:block}
+.feat span{font-size:.78rem;color:rgba(255,255,255,.42)}
 
-/* ── RIGHT / FORM ─ */
+/* form card */
 .form-card{
   background:#fff;border-radius:12px;
-  padding:1.6rem 1.5rem;
+  padding:1.7rem 1.5rem;
   box-shadow:0 24px 60px rgba(0,0,0,.5);
 }
-.form-card h2{font-size:1.05rem;font-weight:800;color:#111;margin-bottom:.2rem}
-.form-card .sub2{font-size:.8rem;color:#9CA3AF;margin-bottom:1.2rem}
-.field{margin-bottom:.65rem}
-label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6B7280;margin-bottom:.3rem}
+.form-card h2{font-size:1.1rem;font-weight:800;color:#111;margin-bottom:.2rem}
+.form-card .fc-sub{font-size:.8rem;color:var(--muted);margin-bottom:1.3rem}
+.field{margin-bottom:.7rem}
+label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#374151;margin-bottom:.32rem}
 input,select,textarea{
-  width:100%;font:inherit;font-size:.9rem;color:#111;
-  background:#F5F7FA;border:1.5px solid #E5E7EB;border-radius:6px;
-  padding:.6rem .8rem;transition:border-color .18s,box-shadow .18s;
+  width:100%;font:inherit;font-size:.92rem;color:#111;
+  background:var(--mist);border:1.5px solid var(--line);border-radius:7px;
+  padding:.65rem .9rem;transition:border-color .18s,box-shadow .18s;
 }
 input::placeholder,textarea::placeholder{color:#C4C9D4}
-input:focus,select:focus,textarea:focus{outline:0;border-color:#0153DB;box-shadow:0 0 0 3px rgba(1,83,219,.09);background:#fff}
-textarea{resize:none;height:72px}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(1,83,219,.09);background:#fff}
+textarea{resize:none;height:76px}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
 .submit{
-  width:100%;margin-top:.3rem;
-  font-family:inherit;font-size:.92rem;font-weight:700;
-  color:#fff;background:#0153DB;border:0;border-radius:6px;
-  padding:.78rem;cursor:pointer;
-  transition:background .2s,transform .15s;
+  width:100%;margin-top:.3rem;font-family:inherit;font-size:.93rem;font-weight:700;
+  color:#fff;background:var(--blue);border:0;border-radius:7px;
+  padding:.8rem;cursor:pointer;transition:background .2s,transform .15s;
   box-shadow:0 6px 18px -6px rgba(1,83,219,.65);
 }
-.submit:hover{background:#1461F0;transform:translateY(-1px)}
+.submit:hover{background:var(--blue-lt);transform:translateY(-1px)}
 .submit:disabled{opacity:.55;cursor:default;transform:none}
 .fnote{font-size:.7rem;color:#C4C9D4;text-align:center;margin-top:.55rem}
+.form-success{display:none;text-align:center;padding:1.4rem .5rem}
+.form-success.show{display:block}
+.tick{width:50px;height:50px;border-radius:50%;background:#EFF6FF;color:var(--blue);display:grid;place-items:center;margin:0 auto .8rem}
+.tick svg{width:24px;height:24px}
+.form-success h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+.form-success p{font-size:.82rem;color:var(--muted)}
 
-/* success */
-.success{display:none;text-align:center;padding:1.4rem .5rem}
-.success.show{display:block}
-.tick{width:48px;height:48px;border-radius:50%;background:#EFF6FF;color:#0153DB;display:grid;place-items:center;margin:0 auto .8rem}
-.tick svg{width:22px;height:22px}
-.success h3{font-size:1rem;font-weight:700;color:#111;margin-bottom:.3rem}
-.success p{font-size:.82rem;color:#9CA3AF}
+/* ─── SECTION BASE ─────────────────────────── */
+.sec{padding:clamp(3.5rem,7vw,6rem) clamp(1.2rem,4vw,3rem)}
+.inner{max-width:1200px;margin-inline:auto}
+.sec-mist{background:var(--mist)}
+.sec-dark{background:var(--dark);color:#fff}
+.sec-blue{background:var(--blue);color:#fff}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:.85rem}
+.sec-dark .tag,.sec-blue .tag{color:rgba(255,255,255,.55)}
+.sec-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:.75rem}
+.sec-body{font-size:1rem;color:var(--muted);line-height:1.8;max-width:58ch}
+.sec-dark .sec-body{color:rgba(255,255,255,.5)}
+.sec-blue .sec-title{color:#fff}
+.sec-blue .sec-body{color:rgba(255,255,255,.8)}
 
-/* ── RESPONSIVE ── */
+/* ─── ABOUT ────────────────────────────────── */
+/* ── ABOUT ──────────────────────────────── */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.about-img-side{position:relative;overflow:hidden;min-height:460px}
+.about-img-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.about-img-side:hover img{transform:scale(1.03)}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(1,83,219,.18),rgba(5,8,13,.45))}
+.about-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:#fff;border-radius:12px;padding:1rem 1.2rem;
+  display:flex;align-items:center;gap:.8rem;
+  box-shadow:0 8px 32px rgba(0,0,0,.18);
+  max-width:220px;
+}
+.about-badge-icon{width:40px;height:40px;background:rgba(1,83,219,.1);border-radius:10px;display:grid;place-items:center;flex:none;color:var(--blue)}
+.about-badge-icon svg{width:20px;height:20px}
+.about-badge strong{display:block;font-size:.9rem;font-weight:800;color:#111;line-height:1.2}
+.about-badge span{font-size:.75rem;color:var(--muted)}
+.about-content{
+  padding:clamp(2.5rem,5vw,4.5rem) clamp(2rem,4vw,4rem);
+  display:flex;flex-direction:column;justify-content:center;
+  background:#fff;
+}
+.about-content .tag{margin-bottom:.7rem}
+.about-content h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;margin-bottom:1.4rem}
+.about-content h2 em{font-style:normal;color:var(--blue)}
+.about-content p{color:#4B5563;line-height:1.82;margin-bottom:1rem;font-size:.98rem}
+.about-content p:first-of-type{font-size:1.06rem;font-weight:500;color:#111}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1.6rem}
+.about-pillar{display:flex;align-items:center;gap:.65rem;padding:.7rem .9rem;background:var(--mist);border-radius:9px;border-left:3px solid var(--blue)}
+.about-pillar svg{width:16px;height:16px;color:var(--blue);flex:none}
+.about-pillar span{font-size:.84rem;font-weight:600;color:#111}
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:2.2rem;padding:2rem 1.5rem}
-  .left{max-width:100%}
-  .features{max-width:100%}
+  .about-wrap{grid-template-columns:1fr}
+  .about-img-side{min-height:300px}
+  .about-content{padding:2.5rem 1.5rem}
+  .about-pillars{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){.about-pillars{grid-template-columns:1fr}}
+
+/* ─── STATS ────────────────────────────────── */
+.stats-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--dark);
+}
+.stat{
+  padding:2.2rem 1.5rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,.07);
+}
+.stat:last-child{border-right:0}
+.stat-num{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;color:#fff;line-height:1;margin-bottom:.4rem}
+.stat-num b{color:var(--blue-lt)}
+.stat-lbl{font-size:.8rem;color:rgba(255,255,255,.4);font-weight:500;line-height:1.4}
+
+/* ─── SERVICES ─────────────────────────────── */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.svc-card{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:box-shadow .3s,transform .3s}
+.svc-card:hover{box-shadow:0 20px 50px rgba(0,0,0,.1);transform:translateY(-5px)}
+.svc-img{aspect-ratio:3/2;overflow:hidden;position:relative}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.svc-card:hover .svc-img img{transform:scale(1.06)}
+.svc-body{padding:1.3rem}
+.svc-icon{width:38px;height:38px;border-radius:8px;background:rgba(1,83,219,.08);color:var(--blue);display:grid;place-items:center;margin-bottom:.75rem}
+.svc-icon svg{width:19px;height:19px}
+.svc-body h3{font-size:1rem;font-weight:800;margin-bottom:.35rem;letter-spacing:-.01em}
+.svc-body p{font-size:.83rem;color:var(--muted);line-height:1.65}
+
+/* ─── WHY ──────────────────────────────────── */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+.why-item{
+  padding:2.2rem 2rem;
+  border-right:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.why-item:nth-child(even){border-right:0}
+.why-item:nth-child(3),.why-item:nth-child(4){border-bottom:0}
+.why-n{font-size:2.5rem;font-weight:800;color:rgba(91,155,255,.55);display:block;line-height:1;margin-bottom:.9rem}
+.why-item h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.why-item p{font-size:.88rem;color:rgba(255,255,255,.48);line-height:1.72}
+
+/* ─── GALLERY ──────────────────────────────── */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto;
+  gap:1rem;
+}
+.gallery-item{border-radius:10px;overflow:hidden;aspect-ratio:4/3;position:relative;cursor:pointer}
+.gallery-item.tall{grid-row:span 2;aspect-ratio:auto}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s;display:block}
+.gallery-item:hover img{transform:scale(1.05);filter:brightness(.85)}
+.gallery-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.0);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s;
+}
+.gallery-item:hover .gallery-overlay{background:rgba(0,0,0,.3)}
+.gallery-coming{
+  grid-column:1/-1;text-align:center;padding:3.5rem;
+  border:1.5px dashed var(--line);border-radius:12px;background:var(--mist);
+}
+.gallery-coming svg{width:36px;height:36px;color:#C4C9D4;margin:0 auto .9rem}
+.gallery-coming h3{font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
+.gallery-coming p{color:var(--muted);font-size:.92rem}
+
+/* ─── AREAS ────────────────────────────────── */
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.areas-map{border-radius:14px;overflow:hidden;aspect-ratio:4/3;min-height:380px}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
+.chip{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.4rem 1rem;font-size:.82rem;font-weight:600;transition:all .2s}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip.hi{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ─── SOCIAL CTA ───────────────────────────── */
+.social-cta{text-align:center;max-width:620px;margin-inline:auto}
+.social-cta h2{color:#fff;margin-bottom:.65rem}
+.social-cta p{color:rgba(255,255,255,.75);margin-bottom:2rem;font-size:1rem;line-height:1.7}
+.social-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+.sbtn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:inherit;font-weight:700;font-size:.9rem;
+  padding:.8rem 1.5rem;border-radius:8px;cursor:pointer;transition:opacity .2s,transform .2s;
+}
+.sbtn:hover{opacity:.88;transform:translateY(-2px)}
+.sbtn svg{width:17px;height:17px}
+.sbtn-fb{background:#1877F2;color:#fff}
+.sbtn-ig{background:linear-gradient(135deg,#f58529,#dd2a7b,#515bd4);color:#fff}
+.sbtn-wh{background:#fff;color:var(--blue)}
+
+/* ─── CONTACT SECTION ──────────────────────── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.contact-info h2{color:#fff;margin-bottom:.8rem}
+.contact-info p{color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:1.8rem;font-size:1rem}
+.cdetails{display:flex;flex-direction:column;gap:.7rem}
+.citem{
+  display:flex;align-items:center;gap:.85rem;
+  padding:.85rem 1rem;border-radius:9px;
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);
+  transition:border-color .2s,background .2s;
+}
+.citem:hover{border-color:rgba(1,83,219,.5);background:rgba(1,83,219,.05)}
+.citem svg{width:18px;height:18px;color:var(--blue-lt);flex:none}
+.citem small{display:block;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.1rem}
+.citem b{font-size:.94rem;color:#fff}
+.contact-form-card{background:#fff;border-radius:14px;padding:2rem;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.contact-form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:.2rem}
+.contact-form-card .cfc-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.4rem}
+
+/* ─── FOOTER ───────────────────────────────── */
+footer{background:#000;border-top:1px solid rgba(255,255,255,.07)}
+.foot-main{
+  max-width:1200px;margin-inline:auto;
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:2rem;align-items:center;
+  padding:2.5rem clamp(1.2rem,4vw,3rem);
+}
+.foot-logo{height:54px;width:auto}
+.foot-mid{text-align:center}
+.foot-tagline{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.foot-loc{font-size:.78rem;color:rgba(255,255,255,.25);margin-top:.3rem}
+.foot-social{display:flex;gap:.55rem;justify-content:flex-end}
+.foot-social a{
+  width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);transition:all .2s;
+}
+.foot-social a:hover{background:var(--blue);border-color:var(--blue)}
+.foot-social svg{width:15px;height:15px;color:#fff}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:.9rem clamp(1.2rem,4vw,3rem);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:.5rem;
+  font-size:.72rem;color:rgba(255,255,255,.2);max-width:100%;
+}
+.foot-bottom a{color:rgba(255,255,255,.4);transition:color .2s}
+.foot-bottom a:hover{color:#fff}
+
+/* ─── RESPONSIVE ───────────────────────────── */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(255,255,255,.07)}
+}
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:2rem;padding:2rem 1.2rem}
+  .hero-feats{max-width:100%}
   .form-card{max-width:100%;width:100%}
-  h1{font-size:clamp(1.8rem,5vw,2.6rem)}
+  .hero h1{font-size:clamp(1.9rem,5vw,2.6rem)}
+  /* about */
+  .about-wrap{grid-template-columns:1fr}
+  .about-img-side{min-height:280px}
+  .about-content{padding:2.5rem 1.5rem}
+  .about-pillars{grid-template-columns:1fr 1fr}
+  /* areas */
+  .areas-grid{grid-template-columns:1fr}
+  .areas-map{aspect-ratio:unset!important;height:320px;min-height:unset!important;width:100%}
+  .areas-map iframe{width:100%!important;height:320px!important}
+  /* contact */
+  .contact-grid{grid-template-columns:1fr}
+  /* gallery */
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item.tall{grid-row:span 1;aspect-ratio:4/3}
+  /* footer */
+  .foot-main{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .foot-social{justify-content:center}
+  .foot-bottom{justify-content:center;text-align:center}
+  /* reviews */
+  .rv-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .rv-controls{align-self:flex-end}
+  /* social cta */
+  .social-cta{padding-inline:0}
 }
-@media(max-width:660px){
-  .contact-links{display:none}
-}
-@media(max-width:520px){
+@media(max-width:600px){
+  :root{--nav-h:72px}
+  .nav-logo{height:52px}
+  /* hero */
+  .hero-feats .feat span{font-size:.74rem}
+  /* stats */
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-right:1px solid rgba(255,255,255,.07)}
+  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,.07)}
+  /* services */
+  .svc-grid{grid-template-columns:1fr}
+  /* why */
+  .why-grid{grid-template-columns:1fr}
+  .why-item{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+  .why-item:last-child{border-bottom:0!important}
+  /* areas map — tighter on small phones */
+  .areas-map,.areas-map iframe{height:260px!important}
+  /* forms */
   .f2{grid-template-columns:1fr}
-  header{height:72px}
-  header img{height:52px;max-width:240px}
-  .hero{padding-top:72px}
+  /* about pillars */
+  .about-pillars{grid-template-columns:1fr}
+  /* social */
+  .social-btns{flex-direction:column;align-items:center}
+  /* reviews */
+  .g-badge{flex-wrap:wrap;gap:.8rem}
+  .g-logo{border-right:0;padding-right:0}
+  /* footer */
+  .foot-bottom{flex-direction:column;gap:.4rem}
+  /* sections padding */
+  .sec{padding-left:1.2rem;padding-right:1.2rem}
+  .inner{padding-inline:0}
+}
+@media(max-width:380px){
+  .hero h1{font-size:1.7rem}
+  .about-pillars{grid-template-columns:1fr}
+  .chips{gap:.4rem}
+  .chip{font-size:.76rem;padding:.35rem .75rem}
 }
 
-
-  a[href^="tel"]{
-  color:#fff !important;
-  text-decoration:none;
+/* ── BEFORE / AFTER ─────────────────────────── */
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.ba-card{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.ba-slider-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;user-select:none;touch-action:none;cursor:col-resize}
+.ba-img{position:absolute;inset:0;width:100%;height:100%}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
+.ba-img.after{clip-path:inset(0 0 0 50%)}
+.ba-divider{
+  position:absolute;top:0;bottom:0;left:50%;width:3px;
+  background:#fff;box-shadow:0 0 12px rgba(0,0,0,.4);
+  transform:translateX(-50%);pointer-events:none;z-index:3;
+  will-change:left;
 }
+.ba-handle{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;box-shadow:0 2px 16px rgba(0,0,0,.32);
+  display:flex;align-items:center;justify-content:center;
+  z-index:4;pointer-events:none;
+  transition:transform .15s,box-shadow .15s;
+  will-change:left;
+}
+.ba-slider-wrap.dragging .ba-handle{transform:translate(-50%,-50%) scale(1.1);box-shadow:0 4px 24px rgba(0,0,0,.38)}
+.ba-handle svg{width:18px;height:18px;color:#374151}
+.ba-pill{
+  position:absolute;top:.65rem;z-index:4;
+  font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:.25rem .6rem;border-radius:999px;pointer-events:none;
+  transition:opacity .2s;
+}
+.ba-pill.before{left:.65rem;background:rgba(0,0,0,.55);color:#fff}
+.ba-pill.after{right:.65rem;background:var(--blue);color:#fff}
+@media(max-width:900px){.ba-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.ba-grid{grid-template-columns:1fr}}
+
+/* ── LIGHTBOX ──────────────────────────────── */
+.lb-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(5,8,13,.75);
+  backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  padding:1.5rem;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.lb-overlay.open{opacity:1;pointer-events:all}
+.lb-box{
+  background:#fff;border-radius:16px;width:100%;max-width:520px;
+  padding:2.2rem;position:relative;
+  transform:translateY(18px) scale(.97);
+  transition:transform .3s cubic-bezier(.2,.8,.3,1);
+  box-shadow:0 40px 100px rgba(0,0,0,.5);
+  max-height:90vh;overflow-y:auto;
+}
+.lb-overlay.open .lb-box{transform:none}
+.lb-close{
+  position:absolute;top:1rem;right:1rem;
+  width:32px;height:32px;border-radius:50%;
+  background:#F3F4F6;border:0;cursor:pointer;
+  display:grid;place-items:center;transition:background .2s;
+}
+.lb-close:hover{background:#E5E7EB}
+.lb-close svg{width:16px;height:16px;color:#374151}
+.lb-head{margin-bottom:1.5rem}
+.lb-head h3{font-size:1.3rem;font-weight:800;margin-bottom:.2rem}
+.lb-head p{font-size:.85rem;color:var(--muted)}
+.lb-contacts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.4rem}
+.lb-contact{
+  display:flex;align-items:center;gap:.65rem;
+  padding:.75rem .9rem;border-radius:9px;
+  border:1.5px solid var(--line);background:var(--mist);
+  transition:border-color .2s,background .2s;text-decoration:none;
+}
+.lb-contact:hover{border-color:var(--blue);background:#EFF6FF}
+.lb-contact svg{width:18px;height:18px;color:var(--blue);flex:none}
+.lb-contact small{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lb-contact b{font-size:.82rem;color:#111;font-weight:700}
+.lb-divider{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem;color:var(--muted);font-size:.78rem;font-weight:600}
+.lb-divider::before,.lb-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+
+
+/* ── REVIEWS SLIDER ─────────────────────── */
+.rv-header{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.g-badge{display:inline-flex;align-items:center;gap:1.2rem;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.9rem 1.4rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.g-logo{display:flex;align-items:center;gap:.5rem;font-size:.95rem;font-weight:700;color:#5f6368;border-right:1px solid var(--line);padding-right:1.2rem}
+.g-rating-num{font-size:2rem;font-weight:800;color:#111;line-height:1}
+.g-stars-row{display:flex;gap:2px;margin:.2rem 0}
+.g-stars-row svg,.rv-stars svg{width:17px;height:17px}
+.g-count{font-size:.78rem;color:#5f6368;font-weight:500}
+.rv-controls{display:flex;align-items:center;gap:.6rem}
+.rv-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;transition:all .2s}
+.rv-btn:hover{border-color:var(--blue);background:var(--blue)}
+.rv-btn:hover svg{stroke:#fff}
+.rv-btn svg{width:16px;height:16px;stroke:#374151;transition:stroke .2s}
+.rv-track-wrap{overflow:hidden}
+.rv-track{display:flex;gap:1rem;transition:transform .4s cubic-bezier(.25,.8,.25,1)}
+.rv-card{
+  flex:0 0 calc((100% - 2rem) / 3);
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:1.3rem;display:flex;flex-direction:column;gap:.8rem;
+}
+.rv-top{display:flex;align-items:center;gap:.7rem}
+.rv-avatar{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:800;font-size:.9rem;color:#fff;font-family:'Outfit',sans-serif}
+.rv-name{font-size:.88rem;font-weight:700;color:#111}
+.rv-meta{font-size:.7rem;color:#9CA3AF;margin-top:.1rem}
+.rv-mid{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.rv-stars{display:flex;gap:1px}
+.rv-date{font-size:.7rem;color:#9CA3AF;white-space:nowrap}
+.rv-text{font-size:.86rem;color:#374151;line-height:1.68;flex:1}
+.rv-more{font-size:.78rem;color:var(--blue);font-weight:600;text-decoration:none}
+.rv-more:hover{text-decoration:underline}
+.rv-dots{display:flex;gap:.4rem;justify-content:center;margin-top:1.2rem}
+.rv-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:0;cursor:pointer;padding:0;transition:background .2s,transform .2s}
+.rv-dot.active{background:var(--blue);transform:scale(1.25)}
+@media(max-width:900px){.rv-card{flex-basis:calc((100% - 1rem) / 2)}}
+@media(max-width:560px){.rv-card{flex-basis:100%}}
 </style>
 </head>
 <body>
 
-<header>
-  <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png" alt="MPC Plastering & General Building Ltd"/>
-  <div class="coming-soon"><span class="hd"></span>New Website Coming Soon</div>
-</header>
+<!-- ─── NAV ─────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home">
+      <img class="nav-logo" src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png" alt="MPC Plastering & General Building Ltd"/>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#areas">Areas</a>
+      <button class="nav-cta" id="lbTrigger">Get a Quote</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-<section class="hero">
+<!-- mobile drawer -->
+<div class="nav-drawer" id="drawer">
+  <a href="#home" onclick="closeNav()">Home</a>
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#services" onclick="closeNav()">Services</a>
+  <a href="#gallery" onclick="closeNav()">Gallery</a>
+  <a href="#areas" onclick="closeNav()">Areas</a>
+  <button class="nd-cta" onclick="closeNav();openLb()" style="background:var(--blue);color:#fff;border:0;width:100%;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;border-radius:8px;padding:.9rem;margin-top:.5rem">Get a Free Quote</button>
+</div>
+
+<!-- ─── HERO ─────────────────────────────────── -->
+<section class="hero" id="home">
   <div class="hero-inner">
-
-    <div class="left">
-      <span class="eyebrow">Huddersfield · Yorkshire</span>
-      <h1>Plastering &amp; Building<br/>Done Properly</h1>
-      <p class="sub">MPC Plastering &amp; General Building Ltd — delivering quality workmanship across Yorkshire for over two decades. Get in touch for a free, no-obligation quote.</p>
-      <div class="features">
+    <div class="hero-left">
+      <span class="hero-eyebrow">Huddersfield · Yorkshire · Est. 20+ Years</span>
+      <h1>Plastering &amp; Building<br/><em>Done Properly</em></h1>
+      <p class="hero-sub">MPC Plastering &amp; General Building Ltd — quality workmanship and honest service built on over two decades of experience and word-of-mouth reputation.</p>
+      <div class="hero-feats">
         <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <div class="feat-text"><strong>Fully Insured</strong><span>£1 million public liability cover</span></div>
+          <div><strong>Fully Insured</strong><span>£1 million public liability cover</span></div>
         </div>
         <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div class="feat-text"><strong>80+ Years' Combined Experience</strong><span>NVQ Level 2 qualified · CSCS certified</span></div>
+          <div><strong>80+ Years' Combined Experience</strong><span>NVQ Level 2 qualified · CSCS certified</span></div>
         </div>
         <div class="feat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <div class="feat-text"><strong>All Project Sizes</strong><span>Patch repairs to full new builds &amp; re-roofs</span></div>
-        </div>
-        <div class="feat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.91-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <div class="feat-text"><strong>07588 026732</strong><span>mpcplasteringbuilding@yahoo.com</span></div>
+          <div><strong>All Project Sizes</strong><span>Patch repairs to full new builds &amp; re-roofs</span></div>
         </div>
       </div>
     </div>
 
     <div class="form-card">
       <h2>Get a Free Quote</h2>
-      <p class="sub2">We'll be in touch as soon as possible.</p>
-      <form id="form" novalidate>
+      <p class="fc-sub">We'll get back to you as soon as possible.</p>
+      <form id="heroForm" novalidate>
         <div class="f2">
           <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
           <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
@@ -192,30 +741,791 @@ textarea{resize:none;height:72px}
         <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
         <div class="field"><label>Message *</label><textarea name="message" required placeholder="Tell us about the job…"></textarea></div>
         <button class="submit" type="submit">Send Enquiry</button>
-        <p class="fnote">Free &amp; no obligation · Huddersfield &amp; all of Yorkshire</p>
+        <p class="fnote">Free &amp; no obligation · Huddersfield &amp; all Yorkshire</p>
       </form>
-      <div class="success" id="done">
+      <div class="form-success" id="heroSuccess">
         <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
         <h3>Thanks — we'll be in touch!</h3>
-        <p>Enquiry received. We'll get back to you shortly.</p>
+        <p>Enquiry received. We'll respond as soon as possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stat"><div class="stat-num">20<b>+</b></div><div class="stat-lbl">Years in business</div></div>
+  <div class="stat"><div class="stat-num">80<b>+</b></div><div class="stat-lbl">Years' combined experience</div></div>
+  <div class="stat"><div class="stat-num">£1<b>m</b></div><div class="stat-lbl">Public liability cover</div></div>
+  <div class="stat"><div class="stat-num">NVQ<b> L2</b></div><div class="stat-lbl">Qualified &amp; CSCS certified</div></div>
+</div>
+
+<!-- ─── ABOUT ────────────────────────────────── -->
+<section id="about" style="overflow:hidden">
+  <div class="about-wrap">
+
+    <div class="about-img-side">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format&fit=crop&q=85" alt="Building construction Yorkshire" loading="lazy"/>
+      <div class="about-img-overlay"></div>
+      <div class="about-badge">
+        <div class="about-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div>
+          <strong>20+ Years<br/>in Business</strong>
+          <span>Est. Huddersfield</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content">
+      <span class="tag">Our Story</span>
+      <h2>Two Decades of<br/><em>Trusted Workmanship</em></h2>
+      <p>After setting up as a self-employed sole trader over 20 years ago, MPC Plastering &amp; General Building has built a strong reputation for quality workmanship, reliability and professionalism — primarily through word-of-mouth alone.</p>
+      <p>Over the years, we've established a loyal and repeat client base, providing services for fellow trade contractors, landlords, commercial clients and homeowners alike. Thanks to the continued support of our customers and recommendations from satisfied clients, our business has continued to grow year after year.</p>
+      <p>As a result, MPC has expanded into a larger workforce, allowing us to take on a wider range of projects while maintaining the high standards and personal service we've always been known for.</p>
+      <div class="about-pillars">
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>NVQ Level 2 Qualified</span>
+        </div>
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>£1m Public Liability</span>
+        </div>
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>CSCS Certified</span>
+        </div>
+        <div class="about-pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>80+ Years Combined Exp.</span>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- ─── SERVICES ──────────────────────────────── -->
+<section class="sec sec-mist" id="services">
+  <div class="inner">
+    <span class="tag">What We Do</span>
+    <h2 class="sec-title">Our Services</h2>
+    <p class="sec-body" style="margin-bottom:2.5rem">From a small patch repair to a full new build — one trusted team handles it all, saving you the hassle of dealing with multiple tradesmen.</p>
+    <div class="svc-grid">
+      <a class="svc-card" href="plastering.html" style="display:block;text-decoration:none;color:inherit">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1621905251189-08b45249ff38?w=600&auto=format&fit=crop&q=80" alt="Plastering Huddersfield" loading="lazy"/></div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-5h6v5"/></svg></div>
+          <h3>Plastering</h3>
+          <p>All aspects of plastering including heritage &amp; lime mortars, pebble dashing and rendering — finished to the highest standard.</p>
+          <div style="display:inline-flex;align-items:center;gap:.4rem;margin-top:.9rem;font-size:.82rem;font-weight:700;color:var(--blue)">View service <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+        </div>
+      </a>
+      <div class="svc-card">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&auto=format&fit=crop&q=80" alt="General building Huddersfield" loading="lazy"/></div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+          <h3>General Building</h3>
+          <p>Extensions, new builds, flagging and pointing — quality building work handled professionally from start to finish.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&auto=format&fit=crop&q=80" alt="Roofing Huddersfield Yorkshire" loading="lazy"/></div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 3l9 9"/><path d="M5 10v9h14v-9"/></svg></div>
+          <h3>Roofing</h3>
+          <p>Roofing repairs and full re-roofs — keeping your property weather-tight, secure and looking its best.</p>
+        </div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&auto=format&fit=crop&q=80" alt="Project management Yorkshire" loading="lazy"/></div>
+        <div class="svc-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
+          <h3>Project Management</h3>
+          <p>Full project management from initial consultation to completion — one point of contact throughout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE US ─────────────────────────── -->
+<section class="sec sec-dark">
+  <div class="inner">
+    <span class="tag">Why MPC</span>
+    <h2 class="sec-title" style="color:#fff;margin-bottom:2.5rem">Built on Quality.<br/>Finished with Pride.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-n">01</span>
+        <h3>Word-of-Mouth Reputation</h3>
+        <p>Over 20 years in business built almost entirely on recommendations. Our work speaks for itself — and so do our customers.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-n">02</span>
+        <h3>One Team, Every Trade</h3>
+        <p>Plastering, roofing, building and project management under one roof — no juggling multiple contractors or wasted time.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-n">03</span>
+        <h3>Tidy, Respectful Tradesmen</h3>
+        <p>We treat every property with care — dust protection, tidy workmanship and a full clean-up at the end of every job.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-n">04</span>
+        <h3>We Actually Respond</h3>
+        <p>We know how frustrating it is when tradesmen go quiet. We aim to respond to every enquiry promptly and honestly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── REVIEWS ──────────────────────────── -->
+<section class="sec sec-mist" id="reviews">
+  <div class="inner">
+    <div class="rv-header">
+      <div class="g-badge">
+        <div class="g-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="26" height="26"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg>
+          Google Reviews
+        </div>
+        <div>
+          <div class="g-rating-num">5.0</div>
+          <div class="g-stars-row"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="g-count">14 reviews</div>
+        </div>
+      </div>
+      <div class="rv-controls">
+        <button class="rv-btn" id="rvPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="rv-btn" id="rvNext" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="rv-track-wrap">
+      <div class="rv-track" id="rvTrack">
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#4285F4">RS</div>
+            <div><div class="rv-name">Robert Sykes</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">1 hour ago</span>
+          </div>
+          <p class="rv-text">We used MPC service great Communication from Nic arrived on time both for the Quotation and on the actual job, was very happy with the service workmen ship and will definitely recommend and use again.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#EA4335">TP</div>
+            <div><div class="rv-name">Tom Portman</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">3 hours ago</span>
+          </div>
+          <p class="rv-text">Excellent Team, Quality of Work, Value for Money and Always On Time What do you look for when you need any kind of work to done? What I look for is … <a class="rv-more" href="https://www.google.com/maps/contrib/117904437600761248983/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#34A853">SK</div>
+            <div><div class="rv-name">Sara K</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">13 hours ago</span>
+          </div>
+          <p class="rv-text">I can’t recommend Nick and his team highly enough. From the outset, they were professional, reliable, and transparent. They arrived exactly when they said they would, worked incredibly hard throughout the day, and completed the job on … <a class="rv-more" href="https://www.google.com/maps/contrib/115724028917660808339/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#FBBC05">LM</div>
+            <div><div class="rv-name">Lucas Murgatroyd</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">Top quality work and always a friendly reliable service. Couldn’t recommend enough!</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#9C27B0">JW</div>
+            <div><div class="rv-name">Julia Wood</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">I am so impressed with the attic gable end wall it’s perfect and the fact there was nothing to clean up just a quick wet dust round. I can’t thank you enough for the workmanship and respect of mums home leaving it so clean. Thanks Julia</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#FF5722">JT</div>
+            <div><div class="rv-name">Jordan Tindle</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">have used nick and his plastering team on all my jobs over the last ten years! excellent finish on all there work would highly reccomend</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#00BCD4">MH</div>
+            <div><div class="rv-name">Michael Harris</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">I have used Nick and his team several times and they have always been 1st class.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#4285F4">RC</div>
+            <div><div class="rv-name">Robert Copley</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">A Top class company!! Nick and his team always deliver great work, they are adaptable,flexible and ready to help with any issues on site to help other trades, and always as team players, I would highly reccomend these guys..they have … <a class="rv-more" href="https://www.google.com/maps/contrib/115425779696624427592/reviews?hl=en-GB" target="_blank" rel="noopener">Read more on Google</a></p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#34A853">JH</div>
+            <div><div class="rv-name">James Haigh</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">14 hours ago</span>
+          </div>
+          <p class="rv-text">Quality plaster work second to none! Never seen plaster so smooth</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#EA4335">MM</div>
+            <div><div class="rv-name">michael mallinson</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">15 hours ago</span>
+          </div>
+          <p class="rv-text">Have use Nick for a Number of years for jobs around my house and for other other jobs I would recommend to anybody very reasonably priced And very clean and tidy worker</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#FF9800">LS</div>
+            <div><div class="rv-name">Luke Sullivan</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">15 hours ago</span>
+          </div>
+          <p class="rv-text">Had MPC in to board and plaster our living room. Nick and team worked to a very high Standard and couldn’t fault a thing. Very clean and left no mess. Would recommend 👍🏻</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#9C27B0">JH</div>
+            <div><div class="rv-name">James Hartley</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">15 hours ago</span>
+          </div>
+          <p class="rv-text">Nick and his team are fantastic, from start to finish nothing but professional.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#00BCD4">AG</div>
+            <div><div class="rv-name">Anthony Gray</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">a month ago</span>
+          </div>
+          <p class="rv-text">Good team of workers, swift work, great prices for the quality of the work, honest communication! The only team of builders I’ve found to be direct and honest about what’s needed, costs, lengths of time and any potential changes the work may throw up.</p>
+        </div>
+        <div class="rv-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#4285F4">BS</div>
+            <div><div class="rv-name">Ben Sullivan</div><div class="rv-meta">Google Review</div></div>
+            <div style="margin-left:auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16 19.2 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.4 6.3 14.7z"/><path fill="#FBBC05" d="M24 46c5.8 0 10.8-1.9 14.7-5.2l-6.8-5.6C29.8 36.4 27 37 24 37c-6 0-10.7-3.1-11.7-8.4l-7 5.4C8.8 41.8 15.8 46 24 46z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3-3.3 5.4-6.2 6.8l6.8 5.6C40.5 37.3 44.5 31.1 44.5 24c0-1.3-.2-2.7-.5-4z"/></svg></div>
+          </div>
+          <div class="rv-mid">
+            <div class="rv-stars"><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <span class="rv-date">a month ago</span>
+          </div>
+          <p class="rv-text">Organised,efficient and quality. Great experience from start to finish .</p>
+        </div>
+      </div>
+    </div>
+    <div class="rv-dots" id="rvDots"></div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ───────────────────────────────── -->
+<section class="sec" id="gallery">
+  <div class="inner">
+    <span class="tag">Our Work</span>
+    <h2 class="sec-title">Project Gallery</h2>
+    <p class="sec-body" style="margin-bottom:2.5rem">Real project photos coming soon — follow us on social media to see our latest work in the meantime.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=80" alt="Plastering work" loading="lazy"/>
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45249ff38?w=600&auto=format&fit=crop&q=80" alt="Plastering" loading="lazy"/>
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop&q=80" alt="Building work" loading="lazy"/>
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=600&auto=format&fit=crop&q=80" alt="Construction" loading="lazy"/>
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?w=600&auto=format&fit=crop&q=80" alt="Roofing Huddersfield Yorkshire" loading="lazy"/>
+        <div class="gallery-overlay"></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:.85rem;color:var(--muted)">Stock photos shown — real project photography coming soon</p>
+  </div>
+</section>
+
+<!-- ─── BEFORE & AFTER ───────────────────────── -->
+<section class="sec" id="transformations">
+  <div class="inner">
+    <span class="tag">Real Results</span>
+    <h2 class="sec-title">Before &amp; After</h2>
+    <p class="sec-body" style="margin-bottom:2.5rem">Drag the slider left or right to reveal the transformation. Real project photos from jobs we've completed across Yorkshire.</p>
+    <div class="ba-grid">
+
+      <!-- Project 1 -->
+      <div class="ba-card">
+        <div class="ba-slider-wrap" data-ba>
+          <div class="ba-img before">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20.jpeg" alt="Before plastering project 1" loading="lazy"/>
+          </div>
+          <div class="ba-img after">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.20%20(1).jpeg" alt="After plastering project 1" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+          </div>
+          <span class="ba-pill before">Before</span>
+          <span class="ba-pill after">After</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="ba-card">
+        <div class="ba-slider-wrap" data-ba>
+          <div class="ba-img before">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.30.jpeg" alt="Before plastering project 2" loading="lazy"/>
+          </div>
+          <div class="ba-img after">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.29.jpeg" alt="After plastering project 2" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+          </div>
+          <span class="ba-pill before">Before</span>
+          <span class="ba-pill after">After</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="ba-card">
+        <div class="ba-slider-wrap" data-ba>
+          <div class="ba-img before">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.43.19%20(1).jpeg" alt="Before plastering project 3" loading="lazy"/>
+          </div>
+          <div class="ba-img after">
+            <img src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.43.19.jpeg" alt="After plastering project 3" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l-4 8 4 8M16 4l4 8-4 8"/></svg>
+          </div>
+          <span class="ba-pill before">Before</span>
+          <span class="ba-pill after">After</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── AREAS ─────────────────────────────────── -->
+<section class="sec sec-mist" id="areas">
+  <div class="inner">
+    <div class="areas-grid">
+      <div>
+        <span class="tag">Where We Work</span>
+        <h2 class="sec-title">Serving Yorkshire &amp; Beyond</h2>
+        <p class="sec-body">Based in Huddersfield, we serve homeowners, landlords, commercial clients and contractors right across Yorkshire and Lanarkshire. We're also happy to travel nationally for the right project.</p>
+        <div class="chips">
+          <span class="chip hi">Huddersfield</span>
+          <span class="chip">Halifax</span>
+          <span class="chip">Bradford</span>
+          <span class="chip">Leeds</span>
+          <span class="chip">Wakefield</span>
+          <span class="chip">Dewsbury</span>
+          <span class="chip">Barnsley</span>
+          <span class="chip">Sheffield</span>
+          <span class="chip">All Yorkshire</span>
+          <span class="chip">Lanarkshire</span>
+          <span class="chip">Nationwide on request</span>
+        </div>
+      </div>
+      <div class="areas-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1162169.930599172!2d-2.526405831077085!3d53.92463486110496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487935b588f279e9%3A0xcba0fa0330518560!2sYorkshire!5e1!3m2!1sen!2suk!4v1780609726737!5m2!1sen!2suk" style="border:0;width:100%;height:100%;display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOCIAL CTA ────────────────────────────── -->
+<section class="sec sec-blue">
+  <div class="inner">
+    <div class="social-cta">
+      <span class="tag">Follow Our Journey</span>
+      <h2 class="sec-title">See Our Latest Work</h2>
+      <p>We've recently launched our social media presence to showcase projects and share updates. Follow us on Facebook and Instagram to see what we've been working on.</p>
+      <div class="social-btns">
+        <a class="sbtn sbtn-fb" href="https://www.facebook.com/profile.php?id=61590256274433" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          Facebook
+        </a>
+        <a class="sbtn sbtn-ig" href="https://www.instagram.com/mpcplasteringandbuildingltd/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a class="sbtn sbtn-wh" href="#contact">Get a Free Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────── -->
+<section class="sec sec-dark" id="contact">
+  <div class="inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="tag">Get In Touch</span>
+        <h2 class="sec-title" style="color:#fff">Request a Free Quote</h2>
+        <p>Tell us about your project and we'll get back to you promptly with a free, no-obligation quote. No hard sell — just honest advice.</p>
+        <div class="cdetails">
+          <a class="citem" href="tel:+447588026732">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 11.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div><small>Phone</small><b>07588 026 732</b></div>
+          </a>
+          <a class="citem" href="mailto:mpcplasteringbuilding@yahoo.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <div><small>Email</small><b>mpcplasteringbuilding@yahoo.com</b></div>
+          </a>
+          <a class="citem" href="https://www.facebook.com/profile.php?id=61590256274433" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+            <div><small>Facebook</small><b>MPC Plastering &amp; General Building</b></div>
+          </a>
+          <a class="citem" href="https://www.instagram.com/mpcplasteringandbuildingltd/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <div><small>Instagram</small><b>@mpcplasteringandbuildingltd</b></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <h3>Send an Enquiry</h3>
+        <p class="cfc-sub">Fields marked * are required.</p>
+        <form id="contactForm" novalidate>
+          <div class="f2">
+            <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
+            <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
+          </div>
+          <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
+          <div class="field">
+            <label>Service required</label>
+            <select name="service">
+              <option value="">Please select…</option>
+              <option>Plastering / rendering</option>
+              <option>Roofing repairs / re-roof</option>
+              <option>General building</option>
+              <option>New build</option>
+              <option>Extension</option>
+              <option>Flagging / pointing</option>
+              <option>Project management</option>
+              <option>Other / not sure</option>
+            </select>
+          </div>
+          <div class="field"><label>Message *</label><textarea name="message" required style="height:96px" placeholder="Tell us about the job, including location if you can…"></textarea></div>
+          <button class="submit" type="submit">Send Enquiry</button>
+          <p class="fnote">Free &amp; no obligation · We aim to respond the same day</p>
+        </form>
+        <div class="form-success" id="contactSuccess">
+          <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Thanks — we'll be in touch!</h3>
+          <p>Enquiry received. We'll get back to you as soon as possible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────── -->
+<footer>
+  <div class="foot-main">
+    <img class="foot-logo" src="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png" alt="MPC Plastering & General Building Ltd"/>
+    <div class="foot-mid">
+      <div class="foot-tagline">Built on Quality. Finished with Pride.</div>
+      <div class="foot-loc">MPC Plastering &amp; General Building Ltd · Huddersfield, Yorkshire</div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.facebook.com/profile.php?id=61590256274433" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/mpcplasteringandbuildingltd/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; <span id="yr"></span> MPC Plastering &amp; General Building Ltd. All rights reserved.</span>
+    <span>Website designed by <a href="https://www.franks-media.co.uk" target="_blank" rel="noopener">Franks Media</a></span>
+  </div>
+</footer>
+
 <script>
-document.getElementById('form').addEventListener('submit',async function(e){
-  e.preventDefault();
-  if(!this.checkValidity()){this.reportValidity();return;}
-  const btn=this.querySelector('.submit');
-  btn.textContent='Sending…';btn.disabled=true;
-  try{
-    const r=await fetch('https://formspree.io/f/xkoandby',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});
-    if(r.ok){this.style.display='none';document.getElementById('done').classList.add('show');}
-    else throw 0;
-  }catch(_){btn.textContent='Send Enquiry';btn.disabled=false;alert('Something went wrong — please try again.');}
+/* ── year ── */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── burger ── */
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  drawer.classList.toggle('open');
 });
+function closeNav(){
+  burger.classList.remove('open');
+  drawer.classList.remove('open');
+}
+
+/* ── active nav on scroll ── */
+const sections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  navAs.forEach(a => {
+    a.classList.remove('active');
+    if(a.getAttribute('href') === '#'+cur) a.classList.add('active');
+  });
+}, {passive:true});
+
+/* ── form handler ── */
+async function handleForm(formId, successId){
+  const form = document.getElementById(formId);
+  if(!form) return;
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!this.checkValidity()){this.reportValidity();return;}
+    const btn = this.querySelector('.submit');
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try{
+      const r = await fetch('https://formspree.io/f/xkoandby', {
+        method:'POST', headers:{'Accept':'application/json'}, body:new FormData(this)
+      });
+      if(r.ok){
+        this.style.display = 'none';
+        document.getElementById(successId).classList.add('show');
+      } else throw 0;
+    } catch(_){
+      btn.textContent = 'Send Enquiry'; btn.disabled = false;
+      alert('Something went wrong — please try again.');
+    }
+  });
+}
+handleForm('heroForm','heroSuccess');
+handleForm('contactForm','contactSuccess');
+
+/* ── lightbox ── */
+function openLb(){ document.getElementById('lbOverlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLb(){ document.getElementById('lbOverlay').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('DOMContentLoaded', function(){
+  var t=document.getElementById('lbTrigger');
+  var c=document.getElementById('lbClose');
+  var o=document.getElementById('lbOverlay');
+  if(t) t.addEventListener('click', openLb);
+  if(c) c.addEventListener('click', closeLb);
+  if(o) o.addEventListener('click', function(e){ if(e.target===this) closeLb(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLb(); });
+  handleForm('lbForm','lbSuccess');
+});
+
+/* ── reviews slider ── */
+(function(){
+  var track = document.getElementById('rvTrack');
+  var dotsEl = document.getElementById('rvDots');
+  if(!track) return;
+  var cards = track.querySelectorAll('.rv-card');
+  var total = cards.length;
+  var cur = 0;
+
+  function perView(){
+    if(window.innerWidth <= 560) return 1;
+    if(window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  function pages(){ return Math.ceil(total / perView()); }
+
+  function buildDots(){
+    dotsEl.innerHTML = '';
+    for(var i=0;i<pages();i++){
+      var d=document.createElement('button');
+      d.className='rv-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Page '+(i+1));
+      d.dataset.i = i;
+      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(page){
+    var p = pages();
+    cur = Math.max(0, Math.min(page, p-1));
+    var pv = perView();
+    var cardW = cards[0].getBoundingClientRect().width;
+    var gap = 16;
+    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
+    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
+  }
+
+  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
+  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
+
+  buildDots();
+  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
+  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
+
+  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
+})();
+
+/* ── before / after sliders ── */
+(function(){
+  document.querySelectorAll('[data-ba]').forEach(function(wrap){
+    var afterImg = wrap.querySelector('.ba-img.after');
+    var divider  = wrap.querySelector('.ba-divider');
+    var handle   = wrap.querySelector('.ba-handle');
+    var dragging = false;
+    var rafId    = null;
+    var pendingX = null;
+
+    function applyPos(x){
+      var rect = wrap.getBoundingClientRect();
+      var pct  = Math.min(100, Math.max(0, ((x - rect.left) / rect.width) * 100));
+      afterImg.style.clipPath = 'inset(0 0 0 ' + pct.toFixed(3) + '%)';
+      divider.style.left      = pct + '%';
+      handle.style.left       = pct + '%';
+    }
+
+    function scheduleUpdate(x){
+      pendingX = x;
+      if(rafId) return;
+      rafId = requestAnimationFrame(function(){
+        rafId = null;
+        if(pendingX !== null){ applyPos(pendingX); pendingX = null; }
+      });
+    }
+
+    /* pointer events — unified mouse + touch */
+    wrap.addEventListener('pointerdown', function(e){
+      e.preventDefault();
+      wrap.setPointerCapture(e.pointerId);
+      dragging = true;
+      wrap.classList.add('dragging');
+      scheduleUpdate(e.clientX);
+    });
+
+    wrap.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      scheduleUpdate(e.clientX);
+    });
+
+    function endDrag(){
+      dragging = false;
+      wrap.classList.remove('dragging');
+    }
+    wrap.addEventListener('pointerup',     endDrag);
+    wrap.addEventListener('pointercancel', endDrag);
+  });
+})();
+
 </script>
+<div class="lb-overlay" id="lbOverlay">
+  <div class="lb-box" id="lbBox">
+    <button class="lb-close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="lb-head">
+      <h3>Get a Free Quote</h3>
+    </div>
+
+    <form id="lbForm" novalidate>
+      <div class="f2">
+        <div class="field"><label>Name *</label><input name="name" type="text" required placeholder="Full name"/></div>
+        <div class="field"><label>Phone *</label><input name="phone" type="tel" required placeholder="Your number"/></div>
+      </div>
+      <div class="field"><label>Email</label><input name="email" type="email" placeholder="your@email.com"/></div>
+      <div class="field">
+        <label>Service</label>
+        <select name="service">
+          <option value="">Please select…</option>
+          <option>Plastering / rendering</option>
+          <option>Roofing repairs / re-roof</option>
+          <option>General building</option>
+          <option>New build</option>
+          <option>Extension</option>
+          <option>Flagging / pointing</option>
+          <option>Project management</option>
+          <option>Other / not sure</option>
+        </select>
+      </div>
+      <div class="field"><label>Message *</label><textarea name="message" required style="height:80px" placeholder="Tell us about the job…"></textarea></div>
+      <button class="submit" type="submit">Send Enquiry</button>
+      <p class="fnote">Free &amp; no obligation</p>
+    </form>
+    <div class="form-success" id="lbSuccess">
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3>Thanks — we'll be in touch!</h3>
+      <p>Enquiry received. We'll get back to you as soon as possible.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>

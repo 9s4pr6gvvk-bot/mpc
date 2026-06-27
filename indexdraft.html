@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Plasterer & Builder Huddersfield | MPC Plastering & General Building Ltd</title>
-<meta name="description" content="MPC Plastering & General Building Ltd — expert plastering, rendering, roofing, extensions & general building across Yorkshire. 20+ years experience, NVQ qualified, £1m insured. Free quotes."/>
+<title>Plasterer Huddersfield | Plastering &amp; Building | MPC Plastering &amp; General Building Ltd</title>
+<meta name="description" content="Plasterer &amp; builder in Huddersfield. MPC Plastering &amp; General Building Ltd offer plastering, rendering, roofing, extensions &amp; general building across Huddersfield, Holmfirth, Halifax &amp; West Yorkshire. 20+ years experience. Free quotes — call 07588 026 732."/>
 <meta name="keywords" content="plasterer Huddersfield, builder Huddersfield, plastering Yorkshire, rendering Huddersfield, roofing Huddersfield, general builder Yorkshire, plastering and building Huddersfield, MPC plastering"/>
 <link rel="canonical" href="https://www.mpcplastering-building.co.uk/"/>
 <meta property="og:type" content="website"/>
@@ -19,12 +19,17 @@
 <meta name="twitter:image" content="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/WhatsApp%20Image%202026-06-11%20at%2010.30.47%20(1)%20-%20Copy.jpeg"/>
 <meta name="geo.region" content="GB-KIR"/>
 <meta name="geo.placename" content="Huddersfield, West Yorkshire"/>
+<meta name="geo.position" content="53.6458;-1.7850"/>
+<meta name="ICBM" content="53.6458, -1.7850"/>
+<meta name="theme-color" content="#0C0F14"/>
+<meta property="og:locale" content="en_GB"/>
 <script type="application/ld+json">
+
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness","GeneralContractor","HomeAndConstructionBusiness"],
       "@id": "https://www.mpcplastering-building.co.uk/#business",
       "name": "MPC Plastering & General Building Ltd",
       "description": "Professional plastering and general building services across Yorkshire. Over 20 years experience. NVQ qualified, CSCS certified, £1m insured.",
@@ -41,6 +46,12 @@
       "geo": {"@type":"GeoCoordinates","latitude":53.6458,"longitude":-1.7850},
       "areaServed": ["Huddersfield","Halifax","Bradford","Leeds","Wakefield","Dewsbury","Barnsley","Sheffield","Yorkshire","Lancashire"],
       "priceRange": "££",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5",
@@ -71,55 +82,6 @@
     }
   ]
 }
-
-/* ── reviews slider ── */
-(function(){
-  var track = document.getElementById('rvTrack');
-  var dotsEl = document.getElementById('rvDots');
-  if(!track) return;
-  var cards = track.querySelectorAll('.rv-card');
-  var total = cards.length;
-  var cur = 0;
-
-  function perView(){
-    if(window.innerWidth <= 560) return 1;
-    if(window.innerWidth <= 900) return 2;
-    return 3;
-  }
-
-  function pages(){ return Math.ceil(total / perView()); }
-
-  function buildDots(){
-    dotsEl.innerHTML = '';
-    for(var i=0;i<pages();i++){
-      var d=document.createElement('button');
-      d.className='rv-dot'+(i===0?' active':'');
-      d.setAttribute('aria-label','Page '+(i+1));
-      d.dataset.i = i;
-      d.addEventListener('click', function(){ goTo(+this.dataset.i); });
-      dotsEl.appendChild(d);
-    }
-  }
-
-  function goTo(page){
-    var p = pages();
-    cur = Math.max(0, Math.min(page, p-1));
-    var pv = perView();
-    var cardW = cards[0].getBoundingClientRect().width;
-    var gap = 16;
-    track.style.transform = 'translateX(-' + (cur * pv * (cardW + gap)) + 'px)';
-    dotsEl.querySelectorAll('.rv-dot').forEach(function(d,i){ d.classList.toggle('active', i===cur); });
-  }
-
-  document.getElementById('rvPrev').addEventListener('click', function(){ goTo(cur-1); });
-  document.getElementById('rvNext').addEventListener('click', function(){ goTo(cur+1); });
-
-  buildDots();
-  var auto = setInterval(function(){ goTo(cur+1 < pages() ? cur+1 : 0); }, 5000);
-  track.parentElement.addEventListener('mouseenter', function(){ clearInterval(auto); });
-
-  window.addEventListener('resize', function(){ buildDots(); goTo(0); });
-})();
 </script>
 <link rel="icon" href="https://raw.githubusercontent.com/9s4pr6gvvk-bot/mpc/refs/heads/main/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_24_49%20PM.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>

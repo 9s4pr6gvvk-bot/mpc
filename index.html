@@ -1541,7 +1541,7 @@ async function handleForm(formId, successId){
     const btn = this.querySelector('.submit');
     btn.textContent = 'Sending…'; btn.disabled = true;
     try{
-      const r = await fetch('https://formspree.io/f/xkoandby', {
+      const r = await fetch('https://formspree.io/f/mbdnknvq', {
         method:'POST', headers:{'Accept':'application/json'}, body:new FormData(this)
       });
       if(r.ok){

@@ -879,7 +879,7 @@ document.addEventListener('DOMContentLoaded',function(){
       var btn=this.querySelector('.submit');
       btn.textContent='Sending…';btn.disabled=true;
       try{
-        var r=await fetch('https://formspree.io/f/xkoandby',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});
+        var r=await fetch('https://formspree.io/f/mbdnknvq',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});
         if(r.ok){this.style.display='none';document.getElementById('contactSuccess').classList.add('show')}
         else throw 0;
       }catch(_){btn.textContent='Send Enquiry';btn.disabled=false;alert('Something went wrong — please try again.')}
@@ -895,7 +895,7 @@ document.addEventListener('DOMContentLoaded',function(){
     var btn=this.querySelector('.submit');
     btn.textContent='Sending…';btn.disabled=true;
     try{
-      var r=await fetch('https://formspree.io/f/xkoandby',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});
+      var r=await fetch('https://formspree.io/f/mbdnknvq',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(this)});
       if(r.ok){this.style.display='none';document.getElementById('lbSuccess').classList.add('show')}
       else throw 0;
     }catch(_){btn.textContent='Send Enquiry';btn.disabled=false;alert('Something went wrong — please try again.')}
